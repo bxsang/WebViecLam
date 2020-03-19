@@ -11,10 +11,10 @@ services:
       - ./site.conf:/etc/nginx/conf.d/site.conf
 
   php:
-    build: .    
+    build: .
     container_name: php
     volumes:
-      - .:/web  
+      - .:/web
       
   db:
     image: yobasystems/alpine-mariadb
