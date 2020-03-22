@@ -1,8 +1,8 @@
 version: '3'
 services:
-  web:
+  server:
     image: nginx:alpine
-    container_name: nginx
+    container_name: nginx_server
     ports:
       - "80:80"
     working_dir: /web
@@ -10,18 +10,23 @@ services:
       - .:/web
       - ./site.conf:/etc/nginx/conf.d/site.conf
 
-  php:
+  app:
     build: .
-    container_name: php
+    container_name: app
     volumes:
       - .:/web
       
+  composer:
+    restart: 'no'
+    image: composer:1.9.3
+    command: install
+    volumes:
+      - .:/app
+      
   db:
     image: yobasystems/alpine-mariadb
-    container_name: mariadb
+    container_name: db_server
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - "3306:3306"
     volumes:
     - /data/example/mysql:/var/lib/mysql
