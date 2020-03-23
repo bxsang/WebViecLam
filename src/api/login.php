@@ -27,9 +27,12 @@ class Login {
         return $this->token;
     }
 
-    public function genrateToken() {
+    public function genrateToken($id, $name, $role) {
         $token = [
-            'username' => $this->user
+            'username' => $this->user,
+            'id' => $id,
+            'name' => $name,
+            'role' => $role
         ];
         $jwt = JWT::encode($token, $this->secret);
         return $jwt;
@@ -68,18 +71,38 @@ $db = new Database();
 // var_dump($db->selectEmployee($login));
 // var_dump($db->selectEmployer($login));
 
+header("Content-Type: application/json; charset=utf-8");
+
 switch ($role) {
     case 'admin':
-        var_dump($db->selectAdmin($login));
+        $user = $db->selectAdmin($login);
+        $token = $login->genrateToken($user->getID(), $user->getName(), 'admin');
+        echo json_encode([
+            'status' => 'success',
+            'token' => $token
+        ]);
         break;
     case 'employee':
-        var_dump($db->selectEmployee($login));
+        $user = $db->selectEmployee($login);
+        $token = $login->genrateToken($user->getID(), $user->getName(), 'employee');
+        echo json_encode([
+            'status' => 'success',
+            'token' => $token
+        ]);
         break;
     case 'employer':
-        var_dump($db->selectEmployer($login));
+        $user = $db->selectEmployer($login);
+        $token = $login->genrateToken($user->getID(), $user->getName(), 'employer');
+        echo json_encode([
+            'status' => 'success',
+            'token' => $token
+        ]);
         break;
     default:
-        echo '';
+        echo json_encode([
+            'status' => 'failed',
+            'token' => null
+        ]);
         break;
 }
 
