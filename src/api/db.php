@@ -14,16 +14,13 @@ class Database {
         try {
             $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
             $dotenv->load();
-            $this->db_server = $_ENV['DB_SERVER'];
-            $this->db_user = $_ENV['DB_USER'];
-            $this->db_pass = $_ENV['DB_PASS'];
-            $this->dbname = $_ENV['DB_NAME'];
         } catch (\Throwable $th) {
-            $this->db_server = getenv('DB_SERVER');
-            $this->db_user = getenv('DB_USER');
-            $this->db_pass = getenv('DB_PASS');
-            $this->dbname = getenv('DB_NAME');
+
         }
+        $this->db_server = getenv('DB_SERVER');
+        $this->db_user = getenv('DB_USER');
+        $this->db_pass = getenv('DB_PASS');
+        $this->dbname = getenv('DB_NAME');
     }
 
     public function connect() {

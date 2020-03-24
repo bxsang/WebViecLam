@@ -59,7 +59,7 @@ class Login {
         return false;
     }
     
-    public function printMessage($status) {
+    public function printStatus($status) {
         if ($status == true) {
             echo json_encode([
                 'status' => 'success',
@@ -88,20 +88,20 @@ switch ($role) {
     case 'admin':
         $user = $db->selectAdmin($login);
         $login->genrateToken($user, 'admin');
-        $login->printMessage(true);
+        $login->printStatus(true);
         break;
     case 'employee':
         $user = $db->selectEmployee($login);
         $login->genrateToken($user, 'employee');
-        $login->printMessage(true);
+        $login->printStatus(true);
         break;
     case 'employer':
         $user = $db->selectEmployer($login);
         $login->genrateToken($user, 'employer');
-        $login->printMessage(true);
+        $login->printStatus(true);
         break;
     default:
-        $login->printMessage(false);
+        $login->printStatus(false);
         break;
 }
 
