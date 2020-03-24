@@ -2,12 +2,20 @@
 class Admin {
     private $id;
     private $name;
+    private $username;
+    private $password;
     private $email;
+    private $created_at;
+    private $modified_at;
 
-    public function __construct($id, $name, $email) {
+    public function __construct($id, $name, $username, $password, $email, $created_at, $modified_at) {
         $this->id = $id;
         $this->name = $name;
+        $this->username = $username;
+        $this->password = $password;
         $this->email = $email;
+        $this->created_at = $created_at;
+        $this->modified_at = $modified_at;
     }
 
     public function getID() {
@@ -26,6 +34,8 @@ class Admin {
 class Employee {
     private $id;
     private $name;
+    private $username;
+    private $password;
     private $email;
     private $gender;
     private $address;
@@ -35,9 +45,11 @@ class Employee {
     private $experience;
     private $cv_path;
 
-    public function __construct($id, $name, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path) {
+    public function __construct($id, $name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path) {
         $this->id = $id;
         $this->name = $name;
+        $this->username = $username;
+        $this->password = $password;
         $this->email = $email;
         $this->gender = $gender;
         $this->address = $address;
@@ -64,6 +76,8 @@ class Employee {
 class Employer {
     private $id;
     private $name;
+    private $username;
+    private $password;
     private $email;
     private $gender;
     private $address;
@@ -71,9 +85,11 @@ class Employer {
     private $avatar_path;
     private $com_id;
 
-    public function __construct($id, $name, $email, $gender, $address, $phone_number, $avatar_path, $com_id) {
+    public function __construct($id, $name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id) {
         $this->id = $id;
         $this->name = $name;
+        $this->username = $username;
+        $this->password = $password;
         $this->email = $email;
         $this->gender = $gender;
         $this->address = $address;
@@ -127,7 +143,7 @@ class Job {
     private $type;
     private $salary;
     private $description;
-    private $crested_date;
+    private $created_date;
     private $expiry_date;
     private $requirement;
     private $cat_id;

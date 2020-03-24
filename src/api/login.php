@@ -80,23 +80,23 @@ $pass = $_REQUEST['password'];
 $role = $_REQUEST['role'];
 $login = new Login($user, $pass);
 
-$db = new Database();
+$selection = new Selection();
 
 header("Content-Type: application/json; charset=utf-8");
 
 switch ($role) {
     case 'admin':
-        $user = $db->selectAdmin($login);
+        $user = $selection->selectAdmin($login);
         $login->genrateToken($user, 'admin');
         $login->printStatus(true);
         break;
     case 'employee':
-        $user = $db->selectEmployee($login);
+        $user = $selection->selectEmployee($login);
         $login->genrateToken($user, 'employee');
         $login->printStatus(true);
         break;
     case 'employer':
-        $user = $db->selectEmployer($login);
+        $user = $selection->selectEmployer($login);
         $login->genrateToken($user, 'employer');
         $login->printStatus(true);
         break;

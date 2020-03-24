@@ -3,22 +3,11 @@ require "../../vendor/autoload.php";
 require_once 'db.php';
 
 if (isset($_REQUEST['table'])) {
-    // $table = $_REQUEST['table'];
-    // header("Content-Type: application/json; charset=utf-8");
+    $table = $_REQUEST['table'];
 }
 
-function printStatus($status) {
-    if ($status == true) {
-        echo json_encode([
-            'status' => 'success'
-        ]);
-    }
-    else {
-        echo json_encode([
-            'status' => 'failed'
-        ]);
-    }
-}
+$db = new Insertion();
+header("Content-Type: application/json; charset=utf-8");
 
 switch ($table) {
     case 'employee':
@@ -34,8 +23,7 @@ switch ($table) {
         $experience = $_REQUEST['experience'];
         $cv_path = 'cv/1.docx';
 
-        $db = new Database();
-        printStatus($db->insertEmployee($name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path));
+        $db->insertEmployee($name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path);
         break;
 
     case 'employer':
@@ -49,8 +37,7 @@ switch ($table) {
         $avatar_path = 'avatar/employers/2.jpg';
         $com_id = $_REQUEST['com_id'];
 
-        $db = new Database();
-        printStatus($db->insertEmployer($name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id));
+        $db->insertEmployer($name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id);
         break;
 
     case 'company':
@@ -59,14 +46,13 @@ switch ($table) {
         $phone_number = $_REQUEST['phone_number'];
         $founding_date = $_REQUEST['founding_date'];
 
-        $db = new Database();
-        printStatus($db->insertCompany($name, $address, $phone_number, $founding_date));
+        $db->insertCompany($name, $address, $phone_number, $founding_date);
         break;
 
     case 'category':
         $name = $_REQUEST['name'];
-        $db = new Database();
-        printStatus($db->insertCategory($name));
+
+        $db->insertCategory($name);
         break;
 
     case 'job':
@@ -79,8 +65,7 @@ switch ($table) {
         $cat_id = $_REQUEST['cat_id'];
         $com_id = $_REQUEST['com_id'];
 
-        $db = new Database();
-        printStatus($db->insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id));
+        $db->insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
         break;
 
     case 'applicant':
@@ -88,21 +73,20 @@ switch ($table) {
         $job_id = $_REQUEST['job_id'];
         $er_id = $_REQUEST['er_id'];
 
-        $db = new Database();
-        printStatus($db->insertApplicant($ee_id, $job_id, $er_id));
+        $db->insertApplicant($ee_id, $job_id, $er_id);
         break;
 
     case 'response':
         $message = $_REQUEST['message'];
         $a_id = $_REQUEST['a_id'];
 
-        $db = new Database();
-        printStatus($db->insertResponse($message, $a_id));
+        $db->insertResponse($message, $a_id);
         break;
     
     default:
-        printStatus(false);
         break;
 }
+
+$db->printStatus();
 
 ?>
