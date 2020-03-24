@@ -1,7 +1,7 @@
 <?php
 require "../../vendor/autoload.php";
 use \Firebase\JWT\JWT;
-require_once 'user.php';
+require_once 'objects.php';
 require_once 'db.php';
 
 class Login {
@@ -27,15 +27,14 @@ class Login {
         return $this->token;
     }
 
-    public function genrateToken($id, $name, $role) {
-        $token = [
+    public function genrateToken($user, $role) {
+        $elements = [
             'username' => $this->user,
-            'id' => $id,
-            'name' => $name,
+            'id' => $user->getID(),
+            'name' => $user->getName(),
             'role' => $role
         ];
-        $jwt = JWT::encode($token, $this->secret);
-        return $jwt;
+        $this->token = JWT::encode($elements, $this->secret);
     }
 
     public function getTokenFromClient() {
@@ -59,6 +58,21 @@ class Login {
         }
         return false;
     }
+    
+    public function printMessage($status) {
+        if ($status == true) {
+            echo json_encode([
+                'status' => 'success',
+                'token' => $this->token
+            ]); 
+        }
+        else {
+            echo json_encode([
+                'status' => 'failed',
+                'token' => null
+            ]); 
+        }
+    }
 }
 
 $user = $_REQUEST['username'];
@@ -67,42 +81,27 @@ $role = $_REQUEST['role'];
 $login = new Login($user, $pass);
 
 $db = new Database();
-// var_dump($db->selectAdmin($login));
-// var_dump($db->selectEmployee($login));
-// var_dump($db->selectEmployer($login));
 
 header("Content-Type: application/json; charset=utf-8");
 
 switch ($role) {
     case 'admin':
         $user = $db->selectAdmin($login);
-        $token = $login->genrateToken($user->getID(), $user->getName(), 'admin');
-        echo json_encode([
-            'status' => 'success',
-            'token' => $token
-        ]);
+        $login->genrateToken($user, 'admin');
+        $login->printMessage(true);
         break;
     case 'employee':
         $user = $db->selectEmployee($login);
-        $token = $login->genrateToken($user->getID(), $user->getName(), 'employee');
-        echo json_encode([
-            'status' => 'success',
-            'token' => $token
-        ]);
+        $login->genrateToken($user, 'employee');
+        $login->printMessage(true);
         break;
     case 'employer':
         $user = $db->selectEmployer($login);
-        $token = $login->genrateToken($user->getID(), $user->getName(), 'employer');
-        echo json_encode([
-            'status' => 'success',
-            'token' => $token
-        ]);
+        $login->genrateToken($user, 'employer');
+        $login->printMessage(true);
         break;
     default:
-        echo json_encode([
-            'status' => 'failed',
-            'token' => null
-        ]);
+        $login->printMessage(false);
         break;
 }
 
