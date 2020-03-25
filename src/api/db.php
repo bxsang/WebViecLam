@@ -104,7 +104,7 @@ class Selection extends Database {
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
-        $this->stmt->bind_result($id, $name, $address, $phone_numbere);
+        $this->stmt->bind_result($id, $name, $address, $phone_number);
         if ($this->stmt->fetch()) {
             $this->closeConnection();
             return new Company($id, $name, $address, $phone_number);

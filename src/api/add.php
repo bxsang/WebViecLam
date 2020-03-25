@@ -62,10 +62,11 @@ switch ($field) {
         $description = $_REQUEST['description'];
         $expiry_date = $_REQUEST['expiry_date'];
         $requirement = $_REQUEST['requirement'];
+        $job_work_address = $_REQUEST['job_work_address'];
         $cat_id = $_REQUEST['cat_id'];
         $com_id = $_REQUEST['com_id'];
 
-        $db->insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
+        $db->insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $job_work_address, $cat_id, $com_id);
         break;
 
     case 'applicant':
