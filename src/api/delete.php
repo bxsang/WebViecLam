@@ -1,11 +1,26 @@
 <?php
-require "../../vendor/autoload.php";
+require_once 'auth.php';
 require_once 'db.php';
 
-if (isset($_REQUEST['field'])) {
+header("Content-Type: application/json; charset=utf-8");
+
+$db = new Delete();
+$auth = new Auth();
+$auth->getTokenFromClient();
+try {
+    $role = $auth->decodeToken()->role;
+} catch (\Throwable $th) {
+    $db->printStatus();
+    die();
+}
+
+if (isset($_REQUEST['field']) && $role == 'admin') {
     $field = $_REQUEST['field'];
-    $db = new Delete();
     header("Content-Type: application/json; charset=utf-8");
+}
+else {
+    $db->printStatus();
+    die();
 }
 
 switch ($field) {

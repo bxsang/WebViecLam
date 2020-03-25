@@ -1,52 +1,34 @@
 <?php
-require "../../vendor/autoload.php";
+require_once 'auth.php';
 require_once 'db.php';
-
-if (isset($_REQUEST['field'])) {
-    $field = $_REQUEST['field'];
-}
 
 $db = new Insertion();
 header("Content-Type: application/json; charset=utf-8");
 
+$auth = new Auth();
+$auth->getTokenFromClient();
+try {
+    $role = $auth->decodeToken()->role;
+} catch (\Throwable $th) {
+    $db->printStatus();
+    die();
+}
+
+if (isset($_REQUEST['field']) && ($role == 'admin' || $role == 'employer')) {
+    $field = $_REQUEST['field'];
+}
+else {
+    $db->printStatus();
+    die();
+}
+
 switch ($field) {
-    case 'employee':
-        $name = $_REQUEST['name'];
-        $username = $_REQUEST['username'];
-        $password = $_REQUEST['password'];
-        $email = $_REQUEST['email'];
-        $gender = $_REQUEST['gender'];
-        $address = $_REQUEST['address'];
-        $current_occupation = $_REQUEST['current_occupation'];
-        $phone_number = $_REQUEST['phone_number'];
-        $avatar_path = 'avatar/employees/1.jpg';
-        $experience = $_REQUEST['experience'];
-        $cv_path = 'cv/1.docx';
-
-        $db->insertEmployee($name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path);
-        break;
-
-    case 'employer':
-        $name = $_REQUEST['name'];
-        $username = $_REQUEST['username'];
-        $password = $_REQUEST['password'];
-        $email = $_REQUEST['email'];
-        $gender = $_REQUEST['gender'];
-        $address = $_REQUEST['address'];
-        $phone_number = $_REQUEST['phone_number'];
-        $avatar_path = 'avatar/employers/2.jpg';
-        $com_id = $_REQUEST['com_id'];
-
-        $db->insertEmployer($name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id);
-        break;
-
     case 'company':
         $name = $_REQUEST['name'];
         $address = $_REQUEST['address'];
         $phone_number = $_REQUEST['phone_number'];
-        $founding_date = $_REQUEST['founding_date'];
 
-        $db->insertCompany($name, $address, $phone_number, $founding_date);
+        $db->insertCompany($name, $address, $phone_number);
         break;
 
     case 'category':
@@ -60,13 +42,12 @@ switch ($field) {
         $type = $_REQUEST['type'];
         $salary = $_REQUEST['salary'];
         $description = $_REQUEST['description'];
-        $expiry_date = $_REQUEST['expiry_date'];
         $requirement = $_REQUEST['requirement'];
         $job_work_address = $_REQUEST['job_work_address'];
-        $cat_id = $_REQUEST['cat_id'];
+        $expiry_at = $_REQUEST['expiry_at'];
         $com_id = $_REQUEST['com_id'];
 
-        $db->insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $job_work_address, $cat_id, $com_id);
+        $db->insertJob($title, $type, $salary, $description, $requirement, $job_work_address, $expiry_at, $com_id);
         break;
 
     case 'applicant':

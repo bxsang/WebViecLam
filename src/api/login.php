@@ -2,6 +2,47 @@
 require_once 'auth.php';
 require_once 'db.php';
 
+class Login extends Auth {
+    private $username;
+    private $password;
+
+    public function __construct($username, $password) {
+        parent::__construct();
+        $this->username = $username;
+        $this->password = $password;
+    }
+    
+    public function getUsername() {
+		return $this->username;
+	}
+
+	public function getPassword() {
+		return $this->password;
+    }
+
+    public function checkPassword($user) {
+        if ($user != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public function printStatus($status) {
+        if ($status == true) {
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Dang nhap thanh cong'
+            ]); 
+        }
+        else {
+            echo json_encode([
+                'status' => 'failed',
+                'message' => 'Dang nhap that bai'
+            ]); 
+        }
+    }
+}
+
 if (!isset($_REQUEST['role'])) {
     die();
 }
@@ -9,7 +50,7 @@ if (!isset($_REQUEST['role'])) {
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 $role = $_REQUEST['role'];
-$login = new Auth($username, $password);
+$login = new Login($username, $password);
 
 $selector = new selection();
 $status = false;

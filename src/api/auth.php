@@ -3,23 +3,13 @@ require "../../vendor/autoload.php";
 use \Firebase\JWT\JWT;
 
 class Auth {
-    private $username;
-    private $password;
-    private $secret = 'BI_MAT';
+    private $secret;
     private $token;
 
-    public function __construct($username, $password) {
-        $this->username = $username;
-        $this->password = $password;
+    public function __construct() {
+        $this->secret = 'BI_MAT';
+        $this->token = null;
 	}
-	
-	public function getUsername() {
-		return $this->username;
-	}
-
-	public function getPassword() {
-		return $this->password;
-    }
     
     public function getToken() {
         return $this->token;
@@ -29,16 +19,9 @@ class Auth {
         return $this->secret;
     }
 
-    public function checkPassword($user) {
-        if ($user != null) {
-            return true;
-        }
-        return false;
-    }
-
     public function genrateToken($user, $role) {
         $elements = [
-            'username' => $this->username,
+            'username' => $user->username,
             'id' => $user->id,
             'name' => $user->name,
             'role' => $role
@@ -64,27 +47,11 @@ class Auth {
         return $decoded;
     }
 
-    public function checkLoggedIn() {
-        $this->getTokenFromClient();
+    public function isLoggedIn() {
         if ($this->token != '') {
             return true;
         }
         return false;
-    }
-    
-    public function printStatus($status) {
-        if ($status == true) {
-            echo json_encode([
-                'status' => 'success',
-                'message' => 'Dang nhap thanh cong'
-            ]); 
-        }
-        else {
-            echo json_encode([
-                'status' => 'failed',
-                'message' => 'Dang nhap that bai'
-            ]); 
-        }
     }
 }
 

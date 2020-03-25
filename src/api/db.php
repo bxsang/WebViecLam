@@ -126,7 +126,7 @@ class Selection extends Database {
     }
 
     public function selectJob($id) {
-        $this->query_string = 'SELECT job_id, job_title, job_type, job_salary, job_description, job_created_at, job_expiry_at, job_requirement, `job_work_address`, com_id FROM Jobs WHERE job_id=?';
+        $this->query_string = 'SELECT job_id, job_title, job_type, job_salary, job_description, job_created_at, job_expiry_at, job_requirement, job_work_address, com_id FROM Jobs WHERE job_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
@@ -195,14 +195,14 @@ class Insertion extends Database {
     }
 
     public function insertEmployee($name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path) {
-        $this->query_string = 'INSERT INTO Employees (ee_id, ee_name, ee_username, SHA1(ee_password), ee_email, ee_gender, ee_address, ee_current_occupation, ee_phone_number, ee_avatar_path, ee_experience, ee_cv_path, ee_created_at, ee_modified_at) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,CURRENT_DATE(),NULL)';
+        $this->query_string = 'INSERT INTO Employees (ee_id, ee_name, ee_username, ee_password, ee_email, ee_gender, ee_address, ee_current_occupation, ee_phone_number, ee_avatar_path, ee_experience, ee_cv_path, ee_created_at, ee_modified_at) VALUES (NULL,?,?,SHA1(?),?,?,?,?,?,?,?,?,CURRENT_DATE(),NULL)';
         $this->query($this->query_string);
         $this->stmt->bind_param('sssssssssss', $name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path);
         $this->execute();
     }
 
     public function insertEmployer($name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id) {
-        $this->query_string = 'INSERT INTO Employers (er_id, er_name, er_username, SHA1(er_password), er_email, er_gender, er_address, er_phone_number, er_avatar_path, er_created_at, er_modified_at, com_id) VALUES (NULL,?,?,?,?,?,?,?,?,CURRENT_DATE(),NULL,?)';
+        $this->query_string = 'INSERT INTO Employers (er_id, er_name, er_username, er_password, er_email, er_gender, er_address, er_phone_number, er_avatar_path, er_created_at, er_modified_at, com_id) VALUES (NULL,?,?,SHA1(?),?,?,?,?,?,CURRENT_DATE(),NULL,?)';
         $this->query($this->query_string);
         $this->stmt->bind_param('ssssssssi', $name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id);
         $this->execute();
@@ -223,10 +223,10 @@ class Insertion extends Database {
         $this->execute();
     }
 
-    public function insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $job_work_address, $cat_id, $com_id) {
-        $this->query_string = 'INSERT INTO Jobs (job_id, job_title, job_type, job_salary, job_description, job_created_date, job_expiry_date, job_requirement, job_work_address, cat_id, com_id) VALUES (NULL,?,?,?,?,CURRENT_DATE(),?,?,?,?,?)';
+    public function insertJob($title, $type, $salary, $description, $requirement, $job_work_address, $expiry_at, $com_id) {
+        $this->query_string = 'INSERT INTO Jobs (job_id, job_title, job_type, job_salary, job_description, job_requirement, job_work_address, job_created_at, job_expiry_at, com_id) VALUES (NULL,?,?,?,?,?,?,CURRENT_DATE(),?,?)';
         $this->query($this->query_string);
-        $this->stmt->bind_param('sssssssii', $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
+        $this->stmt->bind_param('sssssssi', $title, $type, $salary, $description, $requirement, $job_work_address, $expiry_at, $com_id);
         $this->execute();
     }
 
@@ -363,7 +363,7 @@ class Delete extends Database {
     }
 
     public function deleteJob($id) {
-        $this->query_string = 'DELETE FROM Employees WHERE job_id=?';
+        $this->query_string = 'DELETE FROM Jobs WHERE job_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->execute();
