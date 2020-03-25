@@ -99,7 +99,7 @@ class Selection extends Database {
     }
 
     public function selectCompany($id) {
-        $this->query_string = 'SELECT com_name, com_address, com_phone_number, com_founding_date FROM Companies WHERE com_id=?';
+        $this->query_string = 'SELECT com_id, com_name, com_address, com_phone_number, com_founding_date FROM Companies WHERE com_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
@@ -112,7 +112,7 @@ class Selection extends Database {
     }
 
     public function selectCategory($id) {
-        $this->query_string = 'SELECT cat_name FROM Categories WHERE cat_id=?';
+        $this->query_string = 'SELECT cat_id, cat_name FROM Categories WHERE cat_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
@@ -125,20 +125,33 @@ class Selection extends Database {
     }
 
     public function selectJob($id) {
-        $this->query_string = 'SELECT job_title, job_type, job_salary, job_description, job_created_date, job_expiry_date, job_requirement, cat_id, com_id FROM Jobs WHERE job_id=?';
+        $this->query_string = 'SELECT job_id, job_title, job_type, job_salary, job_description, job_created_at, job_expiry_at, job_requirement, com_id FROM Jobs WHERE job_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
-        $this->stmt->bind_result($id, $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
+        $this->stmt->bind_result($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $com_id);
         if ($this->stmt->fetch()) {
             $this->closeConnection();
-            return new Job($id, $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
+            return new Job($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $com_id);
+        }
+        return null;
+    }
+
+    public function selectJobsWithCategories($id) {
+        $this->query_string = 'SELECT jc_id, job_id, cat_id FROM JobsWithCategories WHERE jc_id=?';
+        $this->query($this->query_string);
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $job_id, $cat_id);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new JobsWithCategories($id, $job_id, $cat_id);
         }
         return null;
     }
 
     public function selectApplicant($id) {
-        $this->query_string = 'SELECT ee_id, job_id, er_id FROM Companies WHERE a_id=?';
+        $this->query_string = 'SELECT a_id, ee_id, job_id, er_id FROM Companies WHERE a_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
@@ -151,7 +164,7 @@ class Selection extends Database {
     }
 
     public function selectResponse($id) {
-        $this->query_string = 'SELECT res_message, a_id FROM Companies WHERE res_id=?';
+        $this->query_string = 'SELECT res_id, res_message, a_id FROM Companies WHERE res_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
@@ -368,6 +381,10 @@ class Delete extends Database {
         $this->stmt->bind_param('i', $id);
         $this->execute();
     }
+}
+
+class Search extends Database {
+
 }
 
 // admin: admin:admin123

@@ -143,22 +143,33 @@ class Job {
     private $type;
     private $salary;
     private $description;
-    private $created_date;
-    private $expiry_date;
+    private $created_at;
+    private $expiry_at;
     private $requirement;
-    private $cat_id;
     private $com_id;
 
-    public function __construct($id, $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id) {
+    public function __construct($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $com_id) {
         $this->id = $id;
         $this->title = $title;
         $this->type = $type;
         $this->salary = $salary;
         $this->description = $description;
-        $this->expiry_date = $expiry_date;
+        $this->created_at = $created_at;
+        $this->expiry_at = $expiry_date;
         $this->requirement = $requirement;
-        $this->cat_id = $cat_id;
         $this->com_id = $com_id;
+    }
+}
+
+class JobsWithCategories {
+    private $id;
+    private $job_id;
+    private $cat_id;
+
+    public function __construct($id, $job_id, $cat_id) {
+        $this->id = $id;
+        $this->job_id = $job_id;
+        $this->cat_id = $cat_id;
     }
 }
 

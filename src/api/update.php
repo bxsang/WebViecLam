@@ -2,13 +2,13 @@
 require "../../vendor/autoload.php";
 require_once 'db.php';
 
-if (isset($_REQUEST['table'])) {
-    $table = $_REQUEST['table'];
+if (isset($_REQUEST['field'])) {
+    $field = $_REQUEST['field'];
     $db = new Update();
     header("Content-Type: application/json; charset=utf-8");
 }
 
-switch ($table) {
+switch ($field) {
     case 'admin':
         $id = $_REQUEST['id'];
         $name = $_REQUEST['name'];

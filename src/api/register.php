@@ -6,7 +6,7 @@ if (isset($_REQUEST['role'])) {
 }
 
 if (isset($_REQUEST['role']) && ($_REQUEST['role'] == 'employee' || $_REQUEST['role'] == 'employer')) {
-    $table = $role;
+    $field = $role;
     require_once 'add.php';
 }
 else {
