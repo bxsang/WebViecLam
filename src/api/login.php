@@ -1,37 +1,40 @@
 <?php
 require "../../vendor/autoload.php";
 use \Firebase\JWT\JWT;
-require_once 'objects.php';
 require_once 'db.php';
 
 class Login {
-    private $user;
-    private $pass;
+    private $username;
+    private $password;
     private $secret = 'BI_MAT';
     private $token;
 
-    public function __construct($user, $pass) {
-        $this->user = $user;
-        $this->pass = $pass;
+    public function __construct($username, $password) {
+        $this->username = $username;
+        $this->password = $password;
 	}
 	
-	public function getUser() {
-		return $this->user;
+	public function getUsername() {
+		return $this->username;
 	}
 
-	public function getPass() {
-		return $this->pass;
+	public function getPassword() {
+		return $this->password;
     }
     
     public function getToken() {
         return $this->token;
     }
 
+    public function getSecretCode() {
+        return $this->secret;
+    }
+
     public function genrateToken($user, $role) {
         $elements = [
-            'username' => $this->user,
-            'id' => $user->getID(),
-            'name' => $user->getName(),
+            'username' => $this->username,
+            'id' => $user->id,
+            'name' => $user->name,
             'role' => $role
         ];
         $this->token = JWT::encode($elements, $this->secret);
@@ -75,28 +78,28 @@ class Login {
     }
 }
 
-$user = $_REQUEST['username'];
-$pass = $_REQUEST['password'];
+$username = $_REQUEST['username'];
+$password = $_REQUEST['password'];
 $role = $_REQUEST['role'];
-$login = new Login($user, $pass);
+$login = new Login($username, $password);
 
-$selection = new Selection();
+$selector = new selection();
 
 header("Content-Type: application/json; charset=utf-8");
 
 switch ($role) {
     case 'admin':
-        $user = $selection->selectAdmin($login);
+        $user = $selector->selectAdmin($login);
         $login->genrateToken($user, 'admin');
         $login->printStatus(true);
         break;
     case 'employee':
-        $user = $selection->selectEmployee($login);
+        $user = $selector->selectEmployee($login);
         $login->genrateToken($user, 'employee');
         $login->printStatus(true);
         break;
     case 'employer':
-        $user = $selection->selectEmployer($login);
+        $user = $selector->selectEmployer($login);
         $login->genrateToken($user, 'employer');
         $login->printStatus(true);
         break;

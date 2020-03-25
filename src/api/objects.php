@@ -1,12 +1,12 @@
 <?
 class Admin {
-    private $id;
-    private $name;
-    private $username;
-    private $password;
-    private $email;
-    private $created_at;
-    private $modified_at;
+    public $id;
+    public $name;
+    public $username;
+    public $password;
+    public $email;
+    public $created_at;
+    public $modified_at;
 
     public function __construct($id, $name, $username, $password, $email, $created_at, $modified_at) {
         $this->id = $id;
@@ -17,33 +17,21 @@ class Admin {
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
     }
-
-    public function getID() {
-        return $this->id;
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
 }
 
 class Employee {
-    private $id;
-    private $name;
-    private $username;
-    private $password;
-    private $email;
-    private $gender;
-    private $address;
-    private $current_occupation;
-    private $phone_number;
-    private $avatar_path;
-    private $experience;
-    private $cv_path;
+    public $id;
+    public $name;
+    public $username;
+    public $password;
+    public $email;
+    public $gender;
+    public $address;
+    public $current_occupation;
+    public $phone_number;
+    public $avatar_path;
+    public $experience;
+    public $cv_path;
 
     public function __construct($id, $name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path) {
         $this->id = $id;
@@ -59,31 +47,19 @@ class Employee {
         $this->experience = $experience;
         $this->cv_path = $cv_path;
     }
-
-    public function getID() {
-        return $this->id;
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
 }
 
 class Employer {
-    private $id;
-    private $name;
-    private $username;
-    private $password;
-    private $email;
-    private $gender;
-    private $address;
-    private $phone_number;
-    private $avatar_path;
-    private $com_id;
+    public $id;
+    public $name;
+    public $username;
+    public $password;
+    public $email;
+    public $gender;
+    public $address;
+    public $phone_number;
+    public $avatar_path;
+    public $com_id;
 
     public function __construct($id, $name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id) {
         $this->id = $id;
@@ -97,26 +73,14 @@ class Employer {
         $this->avatar_path = $avatar_path;
         $this->com_id = $com_id;
     }
-
-    public function getID() {
-        return $this->id;
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
 }
 
 class Company {
-    private $id;
-    private $name;
-    private $address;
-    private $phone_number;
-    private $founding_date;
+    public $id;
+    public $name;
+    public $address;
+    public $phone_number;
+    public $founding_date;
 
     public function __construct($id, $name, $address, $phone_number, $founding_date) {
         $this->id = $id;
@@ -128,8 +92,8 @@ class Company {
 }
 
 class Category {
-    private $id;
-    private $name;
+    public $id;
+    public $name;
 
     public function __construct($id, $name) {
         $this->id = $id;
@@ -138,17 +102,18 @@ class Category {
 }
 
 class Job {
-    private $id;
-    private $title;
-    private $type;
-    private $salary;
-    private $description;
-    private $created_at;
-    private $expiry_at;
-    private $requirement;
-    private $com_id;
+    public $id;
+    public $title;
+    public $type;
+    public $salary;
+    public $description;
+    public $created_at;
+    public $expiry_at;
+    public $requirement;
+    public $job_work_address;
+    public $com_id;
 
-    public function __construct($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $com_id) {
+    public function __construct($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $job_work_address, $com_id) {
         $this->id = $id;
         $this->title = $title;
         $this->type = $type;
@@ -162,9 +127,9 @@ class Job {
 }
 
 class JobsWithCategories {
-    private $id;
-    private $job_id;
-    private $cat_id;
+    public $id;
+    public $job_id;
+    public $cat_id;
 
     public function __construct($id, $job_id, $cat_id) {
         $this->id = $id;
@@ -174,10 +139,10 @@ class JobsWithCategories {
 }
 
 class Applicant {
-    private $id;
-    private $ee_id;
-    private $job_id;
-    private $er_id;
+    public $id;
+    public $ee_id;
+    public $job_id;
+    public $er_id;
 
     public function __construct($id, $ee_id, $job_id, $er_id) {
         $this->id = $id;
@@ -188,14 +153,28 @@ class Applicant {
 }
 
 class Response {
-    private $id;
-    private $message;
-    private $a_id;
+    public $id;
+    public $message;
+    public $a_id;
 
     public function __construct($id, $message, $a_id) {
         $this->id = $id;
         $this->message = $message;
         $this->a_id = $a_id;
+    }
+}
+
+class SearchResult {
+    public $job_title;
+    public $job_description;
+    public $job_work_address;
+    public $cat_name;
+
+    public function __construct($job_title, $job_description, $job_work_address, $cat_name) {
+        $this->job_title = $job_title;
+        $this->job_description = $job_description;
+        $this->job_work_address = $job_work_address;
+        $this->cat_name = $cat_name;
     }
 }
 

@@ -53,9 +53,8 @@ switch ($field) {
         $name = $_REQUEST['name'];
         $address = $_REQUEST['address'];
         $phone_number = $_REQUEST['phone_number'];
-        $founding_date = $_REQUEST['founding_date'];
 
-        $db->updateCompany($id, $name, $address, $phone_number, $founding_date);
+        $db->updateCompany($id, $name, $address, $phone_number);
         break;
 
     case 'category':

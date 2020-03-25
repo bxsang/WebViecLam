@@ -1,4 +1,5 @@
 <?php
+require_once 'objects.php';
 
 class Database {
     protected $db_server;
@@ -62,7 +63,7 @@ class Selection extends Database {
     public function selectAdmin($login) {
         $this->query_string = 'SELECT ad_id, ad_name, ad_username, ad_password, ad_email, ad_created_at, ad_modified_at FROM Admins WHERE ad_username=? AND ad_password=?';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ss', $login->getUser(), sha1($login->getPass()));
+        $this->stmt->bind_param('ss', $login->getUsername(), sha1($login->getPassword()));
         $this->stmt->execute();
         $this->stmt->bind_result($id, $name, $username, $password, $email, $created_at, $modified_at);
         if ($this->stmt->fetch()) {
@@ -75,7 +76,7 @@ class Selection extends Database {
     public function selectEmployee($login) {
         $this->query_string = 'SELECT ee_id, ee_name, ee_username, ee_password, ee_email, ee_gender, ee_address, ee_current_occupation, ee_phone_number, ee_avatar_path, ee_experience, ee_cv_path FROM Employees WHERE ee_username=? AND ee_password=?';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ss', $login->getUser(), sha1($login->getPass()));
+        $this->stmt->bind_param('ss', $login->getUsername(), sha1($login->getPassword()));
         $this->stmt->execute();
         $this->stmt->bind_result($id, $name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path);
         if ($this->stmt->fetch()) {
@@ -88,7 +89,7 @@ class Selection extends Database {
     public function selectEmployer($login) {
         $this->query_string = 'SELECT er_id, er_name, er_username, er_password, er_email, er_gender, er_address, er_phone_number, er_avatar_path, com_id FROM Employers WHERE er_username=? AND er_password=?';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ss', $login->getUser(), sha1($login->getPass()));
+        $this->stmt->bind_param('ss', $login->getUsername(), sha1($login->getPassword()));
         $this->stmt->execute();
         $this->stmt->bind_result($id, $name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id);
         if ($this->stmt->fetch()) {
@@ -99,14 +100,14 @@ class Selection extends Database {
     }
 
     public function selectCompany($id) {
-        $this->query_string = 'SELECT com_id, com_name, com_address, com_phone_number, com_founding_date FROM Companies WHERE com_id=?';
+        $this->query_string = 'SELECT com_id, com_name, com_address, com_phone_number FROM Companies WHERE com_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
-        $this->stmt->bind_result($id, $name, $address, $phone_number, $founding_date);
+        $this->stmt->bind_result($id, $name, $address, $phone_numbere);
         if ($this->stmt->fetch()) {
             $this->closeConnection();
-            return new Company($id, $name, $address, $phone_number, $founding_date);
+            return new Company($id, $name, $address, $phone_number);
         }
         return null;
     }
@@ -125,11 +126,11 @@ class Selection extends Database {
     }
 
     public function selectJob($id) {
-        $this->query_string = 'SELECT job_id, job_title, job_type, job_salary, job_description, job_created_at, job_expiry_at, job_requirement, com_id FROM Jobs WHERE job_id=?';
+        $this->query_string = 'SELECT job_id, job_title, job_type, job_salary, job_description, job_created_at, job_expiry_at, job_requirement, `job_work_address`, com_id FROM Jobs WHERE job_id=?';
         $this->query($this->query_string);
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
-        $this->stmt->bind_result($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $com_id);
+        $this->stmt->bind_result($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $job_work_address, $com_id);
         if ($this->stmt->fetch()) {
             $this->closeConnection();
             return new Job($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $com_id);
@@ -207,10 +208,10 @@ class Insertion extends Database {
         $this->execute();
     }
 
-    public function insertCompany($name, $address, $phone_number, $founding_date) {
-        $this->query_string = 'INSERT INTO Companies (com_id, com_name, com_address, com_phone_number, com_founding_date) VALUES (NULL,?,?,?,?)';
+    public function insertCompany($name, $address, $phone_number) {
+        $this->query_string = 'INSERT INTO Companies (com_id, com_name, com_address, com_phone_number) VALUES (NULL,?,?,?)';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ssss', $name, $address, $phone_number, $founding_date);
+        $this->stmt->bind_param('sss', $name, $address, $phone_number);
         $this->execute();
     }
 
@@ -222,10 +223,10 @@ class Insertion extends Database {
         $this->execute();
     }
 
-    public function insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id) {
-        $this->query_string = 'INSERT INTO Jobs (job_id, job_title, job_type, job_salary, job_description, job_created_date, job_expiry_date, job_requirement, cat_id, com_id) VALUES (NULL,?,?,?,?,CURRENT_DATE(),?,?,?,?)';
+    public function insertJob($title, $type, $salary, $description, $expiry_date, $requirement, $job_work_address, $cat_id, $com_id) {
+        $this->query_string = 'INSERT INTO Jobs (job_id, job_title, job_type, job_salary, job_description, job_created_date, job_expiry_date, job_requirement, job_work_address, cat_id, com_id) VALUES (NULL,?,?,?,?,CURRENT_DATE(),?,?,?,?,?)';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ssssssii', $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
+        $this->stmt->bind_param('sssssssii', $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id);
         $this->execute();
     }
 
@@ -281,10 +282,10 @@ class Update extends Database {
         $this->execute();
     }
 
-    public function updateCompany($id, $name, $address, $phone_number, $founding_date) {
-        $this->query_string = 'UPDATE Companies SET com_name=?, com_address=?, com_phone_number=?, com_founding_date=? WHERE com_id=?';
+    public function updateCompany($id, $name, $address, $phone_number) {
+        $this->query_string = 'UPDATE Companies SET com_name=?, com_address=?, com_phone_number=? WHERE com_id=?';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ssssi', $name, $address, $phone_number, $founding_date, $id);
+        $this->stmt->bind_param('sssi', $name, $address, $phone_number, $id);
         $this->execute();
     }
 
@@ -295,10 +296,10 @@ class Update extends Database {
         $this->execute();
     }
 
-    public function updateJob($id, $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id) {
-        $this->query_string = 'UPDATE Jobs SET job_title=?, job_type=?, job_salary=?, job_description=?, job_expiry_date=?, job_requirement=?, cat_id=?, com_id=? WHERE job_id=?';
+    public function updateJob($id, $title, $type, $salary, $description, $expiry_date, $requirement, $job_work_address, $cat_id, $com_id) {
+        $this->query_string = 'UPDATE Jobs SET job_title=?, job_type=?, job_salary=?, job_description=?, job_expiry_date=?, job_requirement=?, job_work_address=?, cat_id=?, com_id=? WHERE job_id=?';
         $this->query($this->query_string);
-        $this->stmt->bind_param('ssssssssi', $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id, $id);
+        $this->stmt->bind_param('sssssssiii', $title, $type, $salary, $description, $expiry_date, $requirement, $cat_id, $com_id, $id);
         $this->execute();
     }
 
@@ -384,7 +385,42 @@ class Delete extends Database {
 }
 
 class Search extends Database {
+    private $q;
+    private $city;
+    public function __construct($q, $city) {
+        parent::__construct();
+        $this->q = $q;
+        $this->city = $city;
+    }
+    
+    // TODO:    search using full-text
+    //          combine 3 things above
+    // SELECT Jobs.job_title, Jobs.job_description, Categories.cat_name
+    // FROM ((Jobs INNER JOIN JobsWithCategories ON Jobs.job_id = JobsWithCategories.job_id)
+    //      INNER JOIN Categories ON JobsWithCategories.cat_id = Categories.cat_id)
+    // WHERE MATCH(Jobs.job_title, Jobs.job_description) AGAINST ('dev' IN NATURAL LANGUAGE MODE)
+    //      OR MATCH(Categories.cat_name) AGAINST ('dev' IN NATURAL LANGUAGE MODE) 
+    //      OR MATCH(Jobs.job_work_address) AGAINST ('HCM' IN NATURAL LANGUAGE MODE)
 
+    public function performSearch() {
+        $this->query_string = 'SELECT Jobs.job_title, Jobs.job_description, Jobs.job_work_address, Categories.cat_name
+        FROM ((Jobs INNER JOIN JobsWithCategories ON Jobs.job_id = JobsWithCategories.job_id)
+             INNER JOIN Categories ON JobsWithCategories.cat_id = Categories.cat_id)
+        WHERE MATCH(Jobs.job_title, Jobs.job_description) AGAINST (? IN NATURAL LANGUAGE MODE)
+             OR MATCH(Categories.cat_name) AGAINST (? IN NATURAL LANGUAGE MODE)
+             OR MATCH(Jobs.job_work_address) AGAINST (? IN NATURAL LANGUAGE MODE)';
+        
+        $this->query($this->query_string);
+        $this->stmt->bind_param('sss', $this->q, $this->q, $this->city);
+        $this->stmt->execute();
+        $this->stmt->bind_result($job_title, $job_description, $job_work_address, $cat_name);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new SearchResult($job_title, $job_description, $job_work_address, $cat_name));
+        }
+        $this->closeConnection();
+        return $result;
+    }
 }
 
 // admin: admin:admin123
