@@ -26,6 +26,8 @@ services:
   db:
     image: yobasystems/alpine-mariadb
     container_name: db_server
+    ports:
+      - "3306:3306"
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:

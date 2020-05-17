@@ -43,13 +43,13 @@ class Login extends Auth {
     }
 }
 
-if (!isset($_REQUEST['role'])) {
+if (!isset($_POST['role'])) {
     die();
 }
 
-$username = $_REQUEST['username'];
-$password = $_REQUEST['password'];
-$role = $_REQUEST['role'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$role = $_POST['role'];
 $login = new Login($username, $password);
 
 $selector = new selection();
