@@ -23,6 +23,214 @@
       </div>
     </div>
   </div>
+  <div class="content">
+    <div class="container">
+      <h3 class="text-center">Featured Employers</h3>
+      <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="single-network" href="#">
+            <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
+            <p class="text-center"><span class="network-slogan">Base Enterprise</span><p>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="single-network" href="#">
+            <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
+            <p class="text-center"><span class="network-slogan">Base Enterprise</span><p>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="single-network" href="#">
+            <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
+            <p class="text-center"><span class="network-slogan">Base Enterprise</span><p>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="single-network" href="#">
+            <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
+            <p class="text-center"><span class="network-slogan">Base Enterprise</span><p>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="single-network" href="#">
+            <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
+            <p class="text-center"><span class="network-slogan">Base Enterprise</span><p>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="single-network" href="#">
+            <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
+            <p class="text-center"><span class="network-slogan">Base Enterprise</span><p>
+          </a>
+        </div>
+      </div>
+      <h3 class="text-center">Our Jobs</h3>
+      <div class="work-list">
+        <div class="row">
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+          <div class="col-6 item">
+              <a target="_blank" href="#" title="DevOps Managers (C#, MySQL, Web, Server)">
+                <span class="job-title">
+                  <strong class="text-clip">DevOps Managers (C#, MySQL, Web, Server)</strong>
+                  <em class="text-clip">Wize Solutions</em>
+                </span>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <?php include_once 'include/footer.html' ?>
 
