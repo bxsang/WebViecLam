@@ -1,7 +1,7 @@
 <?php include_once 'include/header.html'; ?>
 
 <body>
-  <? include_once 'include/navbar.html'; ?>
+  <?php include_once 'include/navbar.html'; ?>
 
   <div id="abc">
     <div class="jumbotron jumbotron-fluid">
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <? include_once 'include/footer.html' ?>
+  <?php include_once 'include/footer.html' ?>
 
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
