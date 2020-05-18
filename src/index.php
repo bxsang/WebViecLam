@@ -4,7 +4,7 @@
   <?php include_once 'include/navbar.html'; ?>
 
   <div id="abc">
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron">
       <div class="container">
         <h1>Chào mừng đến với ViecLam</h1>
         <h3>Tìm kiếm những công việc tuyệt vời</h3>
