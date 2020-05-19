@@ -1,3 +1,8 @@
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
 #abc {
   margin-top: 60px;
   text-align: center;
@@ -170,4 +175,51 @@ a {
 
 #btn_reg, #btn_login {
   width: 100%;
+}
+
+.modal-content {
+  border-radius: 1rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.form-sigin {
+  width: 100%;
+}
+
+.card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-label-group>input {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-sigin .btn {
+  border-radius: 5rem;
+}
+
+.form-sigin select {
+  border-radius: 2rem;
+  text-align: center;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+  display: block;
 }
