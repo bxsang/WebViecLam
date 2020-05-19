@@ -28,73 +28,73 @@
     <div class="container companies">
       <h3 class="text-center">Nhà tuyển dụng hàng đầu</h3>
       <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
           </a>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 10px;">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10">
           <a class="company" href="#">
             <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88"  height="43" alt=""></p>
             <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>

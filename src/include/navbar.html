@@ -10,12 +10,54 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="nav navbar-nav navbar-right">
-          <a class="btn btn-primary action-button" role="button" href="#">Đăng ký</a>
+          <a class="btn btn-primary action-button" role="button" href="#" data-toggle="modal" data-target="#signup">Đăng ký</a>
         </li>
         <li class="nav navbar-nav navbar-right">
-          <a class="btn btn-light action-button" role="button" href="#">Đăng nhập</a>
+          <a class="btn btn-light action-button" role="button" href="#" data-toggle="modal" data-target="#signin">Đăng nhập</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="signup">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng ký tài khoản</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="row mr0 ml0">
+          <div class="col-md-6 p5 mb10">
+            <a class="btn btn_auth btn_ntd uppercase" href="#">Nhà tuyển dụng đăng ký</a>
+          </div>
+          <div class="col-md-6 p5 mb10">
+            <a class="btn btn_auth btn_ntv uppercase" href="#">Người tìm việc đăng ký</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signin">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng nhập</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="row mr0 ml0">
+          <div class="col-md-6 p5 mb10">
+            <a class="btn btn_auth btn_ntd uppercase" href="#">Nhà tuyển dụng đăng nhập</a>
+          </div>
+          <div class="col-md-6 p5 mb10">
+            <a class="btn btn_auth btn_ntv uppercase" href="#">Người tìm việc đăng nhập</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

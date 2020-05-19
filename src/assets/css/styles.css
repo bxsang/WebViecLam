@@ -74,9 +74,13 @@
   font-weight: 300;
 }
 
-.col-lg-2, .col-md-3, .col-sm-4, .col-xs-6 {
+.p5 {
   padding-right: 5px;
   padding-left: 5px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
 }
 
 .company{
@@ -129,7 +133,6 @@
 .job-title strong {
   color: #333;
   display: block;
-  
 }
 
 .job-title em {
@@ -139,4 +142,31 @@
 
 a {
   text-decoration: none;
+}
+
+.btn_auth {
+  padding: 16px;
+  width: 100%;
+}
+
+.btn_ntd {
+  background-color: #692095;
+  color: #FFFFFF;
+}
+
+.btn_ntv {
+  background-color: #00999f;
+  color: #FFFFFF;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.mr0 {
+  margin-right: 0px;
+}
+
+.ml0 {
+  margin-left: 0px;
 }
