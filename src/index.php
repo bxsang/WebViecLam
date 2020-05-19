@@ -9,7 +9,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Chào mừng đến với ViecLam</h1>
-        <h3>Tìm kiếm những công việc tuyệt vời</h3>
+        <h4>Tìm kiếm những công việc tuyệt vời</h4>
         <form class="form-inline d-lg-flex justify-content-lg-center" action="" id="search_form">
           <input name="q" type="search" placeholder="Tìm kiếm công việc, vị trí, công ty,..." aria-describedby="button-addon1" class="form-control form-control-lg border-0 bg-light mr-sm-2 mb-2 col-sm-7" autofocus>
           <select name="dia_diem" class="custom-select2 form-control-lg border-0 bg-light mr-sm-2 mb-2 col-sm-3">

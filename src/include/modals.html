@@ -3,46 +3,51 @@
     <div class="modal-content">
       <div class="modal-body">
         <h5 class="card-title text-center">Đăng ký tài khoản Nhà tuyển dụng</h5>
-        <form class="form-sigin">
+        <form class="form-signup_ntd">
           <div class="form-label-group">
             <label>Tên đăng nhập</label>
-            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
+            <input type="text" id="inputCompanyUsername" name="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
           </div>
           <div class="form-label-group">
             <label>Email</label>
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required="">
+            <input type="email" id="inputCompanyEmail" name="email" class="form-control" placeholder="Email" required="">
           </div>
           <div class="form-label-group">
             <label>Mật khẩu</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mật khẩu" required="">
+            <input type="password" id="inputCompanyPassword" name="password" class="form-control" placeholder="Mật khẩu" required="">
           </div>
           <div class="form-label-group">
             <label>Xác nhận mật khẩu</label>
-            <input type="password" id="inputPasswordAgain" name="password_again" class="form-control" placeholder="Xác nhận mật khẩu" required="">
+            <input type="password" id="inputCompanyPasswordAgain" name="password_again" class="form-control" placeholder="Xác nhận mật khẩu" required="">
           </div>
           <div class="form-label-group">
             <label>Tên công ty</label>
             <input type="text" id="inputCompanyName" name="company_name" class="form-control" placeholder="Tên công ty" required="">
           </div>
-          <div class="form-label-group">
-            <label>Tỉnh/thành hoạt động</label>
-            <input type="text" id="inputCompanyName" name="company_name" class="form-control" placeholder="Tỉnh/thành hoạt động" required="">
-          </div>
-          <div class="form-label-group">
-            <label>Quy mô nhân sự</label>
-            <input type="text" id="inputCompanyName" name="company_name" class="form-control" placeholder="Quy mô nhân sự" required="">
-          </div>
+          <label>Tỉnh/thành hoạt động</label>
+          <select id="inputCompanyProvice" name="company_provice" class="custom-select mb-3">
+            <option value="hn">Hà Nội</option>
+            <option value="dn">Đà Nẵng</option>
+            <option value="hcm">Hồ Chí Minh</option>
+          </select>
+          <label>Quy mô nhân sự</label>
+          <select id="inputCompanyScale" name="company_scale" class="custom-select mb-3">
+            <option value="1">Dưới 20 người</option>
+            <option value="2">20-150 người</option>
+            <option value="3">150-300 người</option>
+            <option value="4">Trên 300 người</option>
+          </select>
           <div class="form-label-group">
             <label>Tên người liên hệ</label>
-            <input type="text" id="inputCompanyName" name="company_name" class="form-control" placeholder="Tên người liên hệ" required="">
+            <input type="text" id="inputCompanyRepresentative" name="company_representative" class="form-control" placeholder="Tên người liên hệ" required="">
           </div>
           <div class="form-label-group">
             <label>SĐT liên hệ</label>
-            <input type="text" id="inputCompanyName" name="company_name" class="form-control" placeholder="SĐT liên hệ" required="">
+            <input type="text" id="inputCompanyPhone" name="company_phone" class="form-control" placeholder="SĐT liên hệ" required="">
           </div>
           <div class="form-label-group">
             <label>Email liên hệ</label>
-            <input type="text" id="inputCompanyName" name="company_name" class="form-control" placeholder="Email liên hệ" required="">
+            <input type="email" id="inputCompanyEmail" name="company_email" class="form-control" placeholder="Email liên hệ" required="">
           </div>
           <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Đăng ký</button>
         </form>
@@ -56,30 +61,30 @@
     <div class="modal-content">
       <div class="modal-body">
         <h5 class="card-title text-center">Đăng ký tài khoản Người tìm việc</h5>
-        <form class="form-sigin">
+        <form class="form-signup_ntv">
           <div class="form-label-group">
             <label>Tên đăng nhập</label>
-            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
+            <input type="text" id="inputEmployeeUsername" name="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
           </div>
           <div class="form-label-group">
             <label>Họ và tên</label>
-            <input type="text" id="inputName" name="name" class="form-control" placeholder="Họ và tên" required="">
+            <input type="text" id="inputEmployeeName" name="name" class="form-control" placeholder="Họ và tên" required="">
           </div>
           <div class="form-label-group">
             <label>Số điện thoại</label>
-            <input type="text" id="inputPhoneNumber" name="phone_number" class="form-control" placeholder="Số điện thoại" required="">
+            <input type="text" id="inputEmployeePhoneNumber" name="phone_number" class="form-control" placeholder="Số điện thoại" required="">
           </div>
           <div class="form-label-group">
             <label>Email</label>
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required="">
+            <input type="email" id="inputEmployeeEmail" name="email" class="form-control" placeholder="Email" required="">
           </div>
           <div class="form-label-group">
             <label>Mật khẩu</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mật khẩu" required="">
+            <input type="password" id="inputEmployeePassword" name="password" class="form-control" placeholder="Mật khẩu" required="">
           </div>
           <div class="form-label-group">
             <label>Xác nhận mật khẩu</label>
-            <input type="password" id="inputPasswordAgain" name="password_again" class="form-control" placeholder="Xác nhận mật khẩu" required="">
+            <input type="password" id="inputEmployeePasswordAgain" name="password_again" class="form-control" placeholder="Xác nhận mật khẩu" required="">
           </div>
           <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Đăng ký</button>
         </form>
@@ -94,7 +99,7 @@
       <div class="modal-body">
         <h5 class="card-title text-center">Đăng nhập</h5>
         <form class="form-sigin">
-          <select name="role" class="custom-select mb-3">
+          <select name="role" class="custom-select mb-3 text-center">
             <option value="fiat">Người tìm việc</option>
             <option value="audi">Nhà tuyển dụng</option>
           </select>

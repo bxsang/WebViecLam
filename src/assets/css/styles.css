@@ -3,6 +3,10 @@
   --input-padding-y: .75rem;
 }
 
+#btn_reg {
+  color: white;
+}
+
 #abc {
   margin-top: 60px;
   text-align: center;
@@ -209,13 +213,17 @@ a {
   padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-sigin .btn {
+.form-signup_ntd, .form-signup_ntv, .form-sigin .btn {
   border-radius: 5rem;
 }
 
 .form-sigin select {
   border-radius: 2rem;
-  text-align: center;
+}
+
+.form-signup_ntd select {
+  border-radius: 2rem;
+  height: 3.2rem;
 }
 
 label {
