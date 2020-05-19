@@ -10,10 +10,22 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="nav navbar-nav navbar-right">
-          <a class="btn btn-primary action-button" role="button" href="#" data-toggle="modal" data-target="#signup">Đăng ký</a>
+          <div class="dropdown">
+            <a id="btn_reg" class="btn btn-primary action-button" role="button" data-toggle="dropdown">Đăng ký</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item btn btn_auth btn_ntd uppercase mb10" href="#" data-toggle="modal" data-target="#signup">Nhà tuyển dụng</a>
+              <a class="dropdown-item btn btn_auth btn_ntv uppercase" href="#" data-toggle="modal" data-target="#signup">Người tìm việc</a>
+            </div>
+          </div>
         </li>
         <li class="nav navbar-nav navbar-right">
-          <a class="btn btn-light action-button" role="button" href="#" data-toggle="modal" data-target="#signin">Đăng nhập</a>
+          <div class="dropdown">
+            <a id="btn_login" class="btn btn-light action-button" role="button" data-toggle="dropdown">Đăng nhập</a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item btn btn_auth btn_ntd uppercase mb10" href="#" data-toggle="modal" data-target="#signin">Nhà tuyển dụng</a>
+              <a class="dropdown-item btn btn_auth btn_ntv uppercase" href="#" data-toggle="modal" data-target="#signin">Người tìm việc</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -28,14 +40,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
       </div>
       <div class="modal-body">
-        <div class="row mr0 ml0">
-          <div class="col-md-6 p5 mb10">
-            <a class="btn btn_auth btn_ntd uppercase" href="#">Nhà tuyển dụng đăng ký</a>
-          </div>
-          <div class="col-md-6 p5 mb10">
-            <a class="btn btn_auth btn_ntv uppercase" href="#">Người tìm việc đăng ký</a>
-          </div>
-        </div>
+        <h1>Dang Ky</h1>
       </div>
     </div>
   </div>
@@ -49,14 +54,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
       </div>
       <div class="modal-body">
-        <div class="row mr0 ml0">
-          <div class="col-md-6 p5 mb10">
-            <a class="btn btn_auth btn_ntd uppercase" href="#">Nhà tuyển dụng đăng nhập</a>
-          </div>
-          <div class="col-md-6 p5 mb10">
-            <a class="btn btn_auth btn_ntv uppercase" href="#">Người tìm việc đăng nhập</a>
-          </div>
-        </div>
+        <h1>Dang nhap</h1>
       </div>
     </div>
   </div>

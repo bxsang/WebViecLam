@@ -163,10 +163,11 @@ a {
   text-transform: uppercase;
 }
 
-.mr0 {
-  margin-right: 0px;
+.dropdown-menu {
+  background-color: transparent;
+  border: none;
 }
 
-.ml0 {
-  margin-left: 0px;
+#btn_reg, #btn_login {
+  width: 100%;
 }
