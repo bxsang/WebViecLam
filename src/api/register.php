@@ -13,33 +13,30 @@ else {
 
 switch ($role) {
     case 'employee':
-        $name = $_POST['name'];
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $email = $_POST['email'];
-        $gender = $_POST['gender'];
-        $address = $_POST['address'];
-        $current_occupation = $_POST['current_occupation'];
+        $name = $_POST['name'];
         $phone_number = $_POST['phone_number'];
-        $avatar_path = 'avatar/employees/1.jpg';
-        $experience = $_POST['experience'];
-        $cv_path = 'cv/1.docx';
+        $email = $_POST['email'];
 
-        $db->insertEmployee($name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path);
+        $db->insertEmployee($username, $password, $email, $phone_number);
+        $db->insertNameToFiles($db->getInsertId(), $name);
+
         break;
 
     case 'employer':
-        $name = $_POST['name'];
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $gender = $_POST['gender'];
+        $company_name = $_POST['company_name'];
         $address = $_POST['address'];
-        $phone_number = $_POST['phone_number'];
-        $avatar_path = 'avatar/employers/2.jpg';
-        $com_id = $_POST['com_id'];
+        $scale = $_POST['scale'];
+        $contact_name = $_POST['contact_name'];
+        $contact_phone = $_POST['contact_phone'];
+        $contact_email = $_POST['contact_email'];
 
-        $db->insertEmployer($name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id);
+        $db->insertCompany($company_name, $address, $contact_name, $contact_phone, $contact_email, $scale);
+        $db->insertEmployer($username, $password, $email, $db->getInsertId());
         break;
     
     default:

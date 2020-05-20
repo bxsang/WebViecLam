@@ -1,4 +1,4 @@
-<?
+<?php
 class Admin {
     public $id;
     public $name;
@@ -21,56 +21,58 @@ class Admin {
 
 class Employee {
     public $id;
-    public $name;
     public $username;
     public $password;
-    public $email;
-    public $gender;
-    public $address;
-    public $current_occupation;
     public $phone_number;
-    public $avatar_path;
-    public $experience;
-    public $cv_path;
+    public $email;
+    public $created_at;
+    public $modified_at;
 
-    public function __construct($id, $name, $username, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path) {
+    public function __construct($id, $username, $password, $email, $phone_number, $created_at, $modified_at) {
         $this->id = $id;
-        $this->name = $name;
         $this->username = $username;
         $this->password = $password;
-        $this->email = $email;
-        $this->gender = $gender;
-        $this->address = $address;
-        $this->current_occupation = $current_occupation;
         $this->phone_number = $phone_number;
-        $this->avatar_path = $avatar_path;
-        $this->experience = $experience;
-        $this->cv_path = $cv_path;
+        $this->email = $email;
+        $this->created_at = $created_at;
+        $this->modified_at = $modified_at;
+    }
+}
+
+class File {
+    public $employee_id;
+    public $name;
+    public $birth_date;
+    public $address;
+    public $gender;
+    public $academic_level;
+
+    public function __construct($employee_id, $name, $birth_date, $address, $gender, $academic_level) {
+        $this->employee_id = $employee_id;
+        $this->name = $name;
+        $this->birth_date = $birth_date;
+        $this->address = $address;
+        $this->gender = $gender;
+        $this->academic_level = $academic_level;
     }
 }
 
 class Employer {
     public $id;
-    public $name;
     public $username;
     public $password;
     public $email;
-    public $gender;
-    public $address;
-    public $phone_number;
-    public $avatar_path;
+    public $created_at;
+    public $modified_at;
     public $com_id;
 
-    public function __construct($id, $name, $username, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id) {
+    public function __construct($id, $username, $password, $email, $created_at, $modified_at, $com_id) {
         $this->id = $id;
-        $this->name = $name;
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
-        $this->gender = $gender;
-        $this->address = $address;
-        $this->phone_number = $phone_number;
-        $this->avatar_path = $avatar_path;
+        $this->created_at = $created_at;
+        $this->modified_at = $modified_at;
         $this->com_id = $com_id;
     }
 }
@@ -79,102 +81,91 @@ class Company {
     public $id;
     public $name;
     public $address;
-    public $phone_number;
-    public $founding_date;
+    public $email;
+    public $scale;
+    public $contact_name;
+    public $contact_phone;
 
-    public function __construct($id, $name, $address, $phone_number, $founding_date) {
+    public function __construct($id, $name, $address, $email, $scale, $contact_name, $contact_phone) {
         $this->id = $id;
         $this->name = $name;
         $this->address = $address;
-        $this->phone_number = $phone_number;
-        $this->founding_date = $founding_date;
+        $this->email = $email;
+        $this->scale = $scale;
+        $this->contact_name = $contact_name;
+        $this->contact_phone = $contact_phone;
     }
 }
 
 class Category {
-    public $id;
-    public $name;
+    public $category_name;
 
-    public function __construct($id, $name) {
-        $this->id = $id;
-        $this->name = $name;
+    public function __construct($category_name) {
+        $this->category_name = $category_name;
     }
 }
 
 class Job {
     public $id;
     public $title;
-    public $type;
     public $salary;
+    public $people_num;
+    public $type;
     public $description;
+    public $requirement;
+    public $location;
     public $created_at;
     public $expiry_at;
-    public $requirement;
-    public $job_work_address;
     public $com_id;
 
-    public function __construct($id, $title, $type, $salary, $description, $created_at, $expiry_at, $requirement, $job_work_address, $com_id) {
+    public function __construct($id, $title, $salary, $people_num, $type, $description, $requirement, $location, $created_at, $expiry_at, $com_id) {
         $this->id = $id;
         $this->title = $title;
-        $this->type = $type;
         $this->salary = $salary;
+        $this->people_num = $people_num;
+        $this->type = $type;
         $this->description = $description;
-        $this->created_at = $created_at;
-        $this->expiry_at = $expiry_date;
         $this->requirement = $requirement;
+        $this->location = $location;
+        $this->created_at = $created_at;
+        $this->expiry_at = $expiry_at;
         $this->com_id = $com_id;
     }
 }
 
-class JobsWithCategories {
-    public $id;
+class JobCategory {
     public $job_id;
-    public $cat_id;
-
-    public function __construct($id, $job_id, $cat_id) {
-        $this->id = $id;
+    public $category_name;
+    
+    public function __construct($job_id, $category_name) {
         $this->job_id = $job_id;
-        $this->cat_id = $cat_id;
+        $this->category_name = $category_name;
     }
 }
 
 class Applicant {
     public $id;
-    public $ee_id;
     public $job_id;
-    public $er_id;
+    public $employee_id;
 
-    public function __construct($id, $ee_id, $job_id, $er_id) {
+    public function __construct($id, $job_id, $employee_id, $employer_id) {
         $this->id = $id;
-        $this->ee_id = $ee_id;
         $this->job_id = $job_id;
-        $this->er_id = $er_id;
+        $this->employee_id = $this->employee_id;
     }
 }
 
 class Response {
     public $id;
     public $message;
-    public $a_id;
+    public $response_time;
+    public $applicant_id;
 
-    public function __construct($id, $message, $a_id) {
+    public function __construct($id, $message, $response_time, $applicant_id) {
         $this->id = $id;
         $this->message = $message;
-        $this->a_id = $a_id;
-    }
-}
-
-class SearchResult {
-    public $job_title;
-    public $job_description;
-    public $job_work_address;
-    public $cat_name;
-
-    public function __construct($job_title, $job_description, $job_work_address, $cat_name) {
-        $this->job_title = $job_title;
-        $this->job_description = $job_description;
-        $this->job_work_address = $job_work_address;
-        $this->cat_name = $cat_name;
+        $this->response_time = $response_time;
+        $this->applicant_id = $applicant_id;
     }
 }
 

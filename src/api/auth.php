@@ -23,7 +23,6 @@ class Auth {
         $elements = [
             'username' => $user->username,
             'id' => $user->id,
-            'name' => $user->name,
             'role' => $role
         ];
         $this->token = JWT::encode($elements, $this->secret);

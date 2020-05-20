@@ -9,6 +9,7 @@ switch ($field) {
     case 'register':
         include_once 'register.php';
         break;
+        
     default:
         echo 'failed';
         break;
