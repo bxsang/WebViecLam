@@ -9,3 +9,5 @@
 ### B2. Chạy bằng Docker
 * Cài đặt `Docker`
 * Chạy lệnh `docker-compose up`
+## API
+* API docs: https://documenter.getpostman.com/view/5843322/SzYewvkY?version=latest
