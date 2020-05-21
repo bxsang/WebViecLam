@@ -29,4 +29,7 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-    - /data/example/mysql:/var/lib/mysql
+    - db_volume:/var/lib/mysql
+
+volumes:
+  db_volume:
