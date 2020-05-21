@@ -16,7 +16,7 @@ class Database {
 
     public function __construct() {
         try {
-            $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+            $dotenv = Dotenv\Dotenv::createImmutable(__DIR__, '../../.env');
             $dotenv->load();
         } catch (\Throwable $th) {
 

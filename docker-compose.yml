@@ -27,9 +27,13 @@ services:
     image: yobasystems/alpine-mariadb
     container_name: db_server
     environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
     volumes:
-    - db_volume:/var/lib/mysql
+      - db_volume:/var/lib/mysql
+      - ./mysql-dump:/docker-entrypoint-initdb.d
 
 volumes:
   db_volume:

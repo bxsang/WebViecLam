@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+07:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `job_portal2`
+-- Database: `job_portal`
 --
 
 -- --------------------------------------------------------
@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Admins`
 --
+
+USE job_portal;
 
 CREATE TABLE `Admins` (
   `ad_id` int(11) NOT NULL,

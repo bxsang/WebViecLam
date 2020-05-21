@@ -6,4 +6,4 @@ composer.phar
 # composer.lock
 
 /src/phpmyadmin/
-/src/api/.env
+.env
