@@ -56,3 +56,36 @@ function handleRegister(response) {
     }, 5000);
   }
 }
+
+$(".form-signup_ntd").submit(function (event) {
+  event.preventDefault();
+
+  let form = $(this);
+  let url = 'http://127.0.0.1/api/';
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: form.serialize(),
+    success: function (response) {
+      handleRegister(response);
+    }
+  });
+});
+
+function handleRegister(response) {
+  if (response.status === 'success') {
+    console.log("Employer registration success!!!");
+    $("#signup_ntd").modal('toggle');
+    $("#signup_success").modal('toggle');
+    setTimeout(() => {
+      $("#signup_success").modal('toggle');
+    }, 5000);
+  } else {
+    console.log("Employer registration failed");
+    $("#signup_failed").modal('toggle');
+    setTimeout(() => {
+      $("#signup_failed").modal('toggle');
+    }, 5000);
+  }
+}
