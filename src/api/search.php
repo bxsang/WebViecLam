@@ -1,6 +1,6 @@
 <?php
-require "../../vendor/autoload.php";
-require_once '../components/db.php';
+require $_SERVER['PWD']."/vendor/autoload.php";
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/db.php';
 
 if (isset($_REQUEST['q']) || isset($_REQUEST['city'])) {
     $q = $_REQUEST['q'];

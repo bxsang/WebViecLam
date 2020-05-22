@@ -1,5 +1,5 @@
 <?php
-require "../../vendor/autoload.php";
+require $_SERVER['PWD']."/vendor/autoload.php";
 require_once 'objects.php';
 
 class Database {

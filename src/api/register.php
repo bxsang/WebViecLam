@@ -1,5 +1,5 @@
 <?php
-require_once '../components/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/db.php';
 
 header("Content-Type: application/json; charset=utf-8");
 if (isset($_POST['role'])) {

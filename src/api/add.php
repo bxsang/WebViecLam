@@ -1,6 +1,6 @@
 <?php
-require_once '../components/auth.php';
-require_once '../components/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/db.php';
 
 $db = new Insertion();
 header("Content-Type: application/json; charset=utf-8");

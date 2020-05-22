@@ -1,5 +1,5 @@
 <?php
-require "../../vendor/autoload.php";
+require $_SERVER['PWD']."/vendor/autoload.php";
 use \Firebase\JWT\JWT;
 
 class Auth {
