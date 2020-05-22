@@ -2,7 +2,7 @@ $(".form-sigin").submit(function (event) {
   event.preventDefault();
 
   let form = $(this);
-  let url = 'http://127.0.0.1/api/';
+  let url = window.location.protocol+'//'+window.location.hostname+'/api/';
 
   $.ajax({
     type: "POST",
@@ -28,7 +28,7 @@ $(".form-signup_ntv").submit(function (event) {
   event.preventDefault();
 
   let form = $(this);
-  let url = 'http://127.0.0.1/api/';
+  let url = window.location.protocol+'//'+window.location.hostname+'/api/';
 
   $.ajax({
     type: "POST",
@@ -61,7 +61,7 @@ $(".form-signup_ntd").submit(function (event) {
   event.preventDefault();
 
   let form = $(this);
-  let url = 'http://127.0.0.1/api/';
+  let url = window.location.protocol+'//'+window.location.hostname+'/api/';
 
   $.ajax({
     type: "POST",
