@@ -47,11 +47,14 @@ class Auth {
     }
 
     public function isLoggedIn() {
-        $this->getTokenFromClient();
         if ($this->token != '') {
             return true;
         }
         return false;
+    }
+
+    public function getUserRole() {
+        return $this->decodeToken()->role;
     }
 }
 

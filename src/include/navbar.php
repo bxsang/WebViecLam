@@ -13,15 +13,30 @@
           require_once $_SERVER['DOCUMENT_ROOT'].'/components/auth.php';
 
           $auth = new Auth();
+          $auth->getTokenFromClient();
           if ($auth->isLoggedIn()) {
-            echo '        <li>
-            <a class="navbar-brand" href="#">
-              <img src="https://www.w3schools.com/bootstrap4/bird.jpg" id="img" class="rounded-circle" alt="Logo" style="width:31px; height:31px">
-            </a>
+            echo '
+          <li>
+            <div class="dropdown dropleft" id="dropdown_user">
+            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="32" height="32" class="rounded-circle" data-toggle="dropdown">
+              <div class="dropdown-menu">
+                <a class="dropdown-item href="#">Tài khoản</a>';
+            if ($auth->getUserRole() == 'employee') {
+              echo '
+                <a class="dropdown-item href="#">Việc đã ứng tuyển</a>';
+            }
+            elseif ($auth->getUserRole() == 'employer') {
+              echo '
+                <a class="dropdown-item href="#">Quản lý công việc</a>';
+            }
+            echo '
+                <a class="dropdown-item href="#">Đăng xuất</a>
+              </div>
+            </div>
           </li>';
           } else {
             echo '        <li>
-            <div class="dropdown">
+            <div class="dropdown" id="dropdown_reg">
               <a id="btn_reg" class="btn btn-primary action-button" role="button" data-toggle="dropdown">Đăng ký</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item btn btn_auth btn_ntd uppercase mb10" href="#" data-toggle="modal" data-target="#signup_ntd">Nhà tuyển dụng</a>
@@ -30,9 +45,7 @@
             </div>
           </li>
           <li>
-            <div class="dropdown">
               <a id="btn_login" class="btn btn-light action-button" role="button" data-toggle="modal" data-target="#signin">Đăng nhập</a>
-            </div>
           </li>';
           }
         ?>

@@ -67,7 +67,7 @@
   }
 }
 
-.custom-select {
+#signin .custom-select {
   width: 50%;
 }
 
@@ -180,7 +180,7 @@ a {
   text-transform: uppercase;
 }
 
-.dropdown-menu {
+#dropdown_reg .dropdown-menu {
   background-color: transparent;
   border: none;
 }
