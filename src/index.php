@@ -1,7 +1,7 @@
 <?php include_once 'include/header.html'; ?>
 
 <body>
-  <?php include_once 'include/navbar.html';
+  <?php include_once 'include/navbar.php';
         include_once 'include/modals.html';
   ?>
 
