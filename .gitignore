@@ -7,3 +7,5 @@ composer.phar
 
 /src/phpmyadmin/
 .env
+
+**/.DS_Store
