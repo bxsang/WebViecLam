@@ -9,7 +9,17 @@ $(".form-sigin").submit(function (event) {
     url: url,
     data: form.serialize(),
     success: function (response) {
-      console.log(response);
+      handleLogin(response);
     }
   });
 });
+
+function handleLogin(response) {
+  if (response.status === 'success') {
+    console.log("Login success!!!");
+    location.reload();
+  } else {
+    console.log("Login failed");
+    $("#wrong_credentials").css('display', 'block');
+  }
+}
