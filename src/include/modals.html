@@ -99,17 +99,18 @@
       <div class="modal-body">
         <h5 class="card-title text-center">Đăng nhập</h5>
         <form class="form-sigin">
-          <select name="role" class="custom-select mb-3 text-center">
-            <option value="fiat">Người tìm việc</option>
-            <option value="audi">Nhà tuyển dụng</option>
+          <input type="hidden" name="field" value="login"> 
+          <select name="role" id="loginRole" class="custom-select mb-3 text-center">
+            <option value="employee">Người tìm việc</option>
+            <option value="employer">Nhà tuyển dụng</option>
           </select>
           <div class="form-label-group">
             <label>Tên đăng nhập</label>
-            <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
+            <input type="text" id="loginEmail" name="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
           </div>
           <div class="form-label-group">
             <label>Mật khẩu</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mật khẩu" required="">
+            <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Mật khẩu" required="">
           </div>
           <div class="mb-3" style="padding-left: 1.5rem;">
             <input type="checkbox" class="custom-control-input" id="customCheck1">

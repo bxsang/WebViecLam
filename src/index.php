@@ -264,6 +264,7 @@
   <?php include_once 'include/footer.html' ?>
 
   <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/index.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
