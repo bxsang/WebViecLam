@@ -44,7 +44,15 @@ function handleRegister(response) {
   if (response.status === 'success') {
     console.log("Employee registration success!!!");
     $("#signup_ntv").modal('toggle');
+    $("#signup_success").modal('toggle');
+    setTimeout(() => {
+      $("#signup_success").modal('toggle');
+    }, 5000);
   } else {
     console.log("Employee registration failed");
+    $("#signup_failed").modal('toggle');
+    setTimeout(() => {
+      $("#signup_failed").modal('toggle');
+    }, 5000);
   }
 }
