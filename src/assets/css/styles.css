@@ -213,7 +213,7 @@ a {
   padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-signup_ntd, .form-signup_ntv, .form-sigin .btn {
+.form-signup_ntd .btn, .form-signup_ntv .btn, .form-sigin .btn {
   border-radius: 5rem;
 }
 
