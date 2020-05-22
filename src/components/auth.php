@@ -47,6 +47,7 @@ class Auth {
     }
 
     public function isLoggedIn() {
+        $this->getTokenFromClient();
         if ($this->token != '') {
             return true;
         }
