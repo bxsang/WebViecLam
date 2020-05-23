@@ -32,6 +32,11 @@ switch ($_GET['field']) {
         echo json_encode($selection->getNewJob());
         break;
     
+    case 'all':
+        $selection = new Selection();
+        echo json_encode($selection->getAllJobs());
+        break;
+    
     default:
         http_response_code(403);
         echo json_encode([

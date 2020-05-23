@@ -128,6 +128,20 @@ class Selection extends Database {
         $this->closeConnection();
         return $result;
     }
+
+    public function getAllJobs() {
+        $this->query_string = 'SELECT job_id, job_title, job_salary, job_people_num, job_type, job_description, job_requirement, job_location, job_created_at, job_expiry_at, com_id
+                FROM Jobs';
+        $this->query();
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $title, $salary, $people_num, $type, $description, $requirement, $location, $created_at, $expiry_at, $com_id);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new Job($id, $title, $salary, $people_num, $type, $description, $requirement, $location, $created_at, $expiry_at, $com_id));
+        }
+        $this->closeConnection();
+        return $result;
+    }
 }
 
 class Insertion extends Database {
