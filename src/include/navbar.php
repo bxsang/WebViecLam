@@ -18,19 +18,19 @@
             echo '
           <li>
             <div class="dropdown dropleft" id="dropdown_user">
-            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="32" height="32" class="rounded-circle" data-toggle="dropdown">
+              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="32" height="32" class="rounded-circle" data-toggle="dropdown">
               <div class="dropdown-menu">
-                <a class="dropdown-item href="#">Tài khoản</a>';
+                <a class="dropdown-item" href="#">Tài khoản</a>';
             if ($auth->getUserRole() == 'employee') {
               echo '
-                <a class="dropdown-item href="#">Việc đã ứng tuyển</a>';
+                <a class="dropdown-item" href="#">Việc đã ứng tuyển</a>';
             }
             elseif ($auth->getUserRole() == 'employer') {
               echo '
-                <a class="dropdown-item href="#">Quản lý công việc</a>';
+                <a class="dropdown-item" href="#">Quản lý công việc</a>';
             }
             echo '
-                <a class="dropdown-item href="#">Đăng xuất</a>
+                <a class="dropdown-item" href="logout.php">Đăng xuất</a>
               </div>
             </div>
           </li>';
