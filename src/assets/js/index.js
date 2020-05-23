@@ -13,15 +13,33 @@ function appendNewJobs(jobs) {
     let title = item.title;
     let com_name = item.com_name;
     
-    $(".job-items").append(
-  `<li>
-    <span class="job-title">
-      <a target="_blank" href="https://web.archive.org/web/20200331033319/https://topdev.vn/detail-jobs/business-analyst-3-5-year-experiece-as-white-vietnam-14586" title="Business Analyst (3-5 year experiece)">
-        <strong>`+title+`</strong>
-      </a>
-      <a href="#"><em>`+com_name+`</em></a>
-    </span>
-  </li>`);
+  //   $(".job-items").append(
+  // `<li>
+  //   <span class="job-title">
+  //     <a target="_blank" href="https://web.archive.org/web/20200331033319/https://topdev.vn/detail-jobs/business-analyst-3-5-year-experiece-as-white-vietnam-14586" title="Business Analyst (3-5 year experiece)">
+  //       <strong>`+title+`</strong>
+  //     </a>
+  //     <a href="#"><em>`+com_name+`</em></a>
+  //   </span>
+  // </li>`);
+
+    $(".list-job").append(`
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="logo-box">
+            <img src="https://salt.topdev.vn/JlorGxjbwWuLgupzcV2BewxBjpQlYLnCYf9my4-qpv4/fit/120/0/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ZpbGVzL2xvZ29zL2I4ZGIzYTBhMjE4NzdhOGQ4Y2ZhODEwM2EyNmFhM2FlLmpwZw/b8db3a0a21877a8d8cfa8103a26aa3ae.jpg">
+          </div>
+          <div class="job-content">
+            <a target="_blank" href="#">
+              <strong><h4>`+title+`</h4></strong>
+            </a>
+            <a href="#"><em>`+com_name+`</em></a>
+          </div>
+        </div>
+      </div>
+    </div>`
+    );
   });
 }
 

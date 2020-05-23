@@ -107,12 +107,8 @@
   
     <div class="container">
       <h3 class="text-center">Công việc mới đăng</h3>
-      <div class="job-content">
-        <div class="job-list" scrollbar>
-          <ul class="job-items">
-            
-          </ul>
-        </div>
+      <div class="row list-job">
+        
       </div>
     </div>
   </div>

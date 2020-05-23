@@ -118,8 +118,42 @@
   color: red;
 }
 
+.list-job .card {
+  margin-bottom: 10px;
+}
+
+.list-job .card:hover {
+  background: rgb(2,0,36);
+  background: linear-gradient(83deg,#f8cfcd 0,#fad6cf 20%,#fcdcd1 43%,#fde0d2 63%,#fee3d3 80%,#fee5d3 100%);
+}
+
+.list-job .card .card-body .logo-box {
+  position: relative;
+  float: left;
+  width: 25%;
+  height: 82px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 4px 6px 0 hsla(0,0%,0%,.2);
+}
+
+.list-job .card .card-body .logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 7px;
+}
+
 .job-content {
-  border: 1px solid #e5e5e5;
+  padding-left: 11px;
+  display: inline-block;
+}
+
+.job-content strong {
+  color: #333;
+}
+
+.job-content em {
+  color: gray;
 }
 
 .job-list {
@@ -155,10 +189,6 @@
 .job-title em {
   display: block;
   color: gray;
-}
-
-a {
-  text-decoration: none;
 }
 
 .btn_auth {
