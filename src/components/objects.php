@@ -169,4 +169,16 @@ class Response {
     }
 }
 
+class NewJob {
+    public $id;
+    public $title;
+    public $com_name;
+
+    public function __construct($id, $title, $com_name) {
+        $this->id = $id;
+        $this->title = $title;
+        $this->com_name = $com_name;
+    }
+}
+
 ?>

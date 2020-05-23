@@ -1,3 +1,30 @@
+function getNewJobs() {
+  $.ajax({
+    type: "GET",
+    url: window.location.protocol+'//'+window.location.hostname+'/api/jobs.php?field=new',
+    success: function (response) {
+      appendNewJobs(response);
+    }
+  });
+}
+
+function appendNewJobs(jobs) {
+  jobs.forEach((item, index) => {
+    let title = item.title;
+    let com_name = item.com_name;
+    
+    $(".job-items").append(
+  `<li>
+    <span class="job-title">
+      <a target="_blank" href="https://web.archive.org/web/20200331033319/https://topdev.vn/detail-jobs/business-analyst-3-5-year-experiece-as-white-vietnam-14586" title="Business Analyst (3-5 year experiece)">
+        <strong>`+title+`</strong>
+      </a>
+      <a href="#"><em>`+com_name+`</em></a>
+    </span>
+  </li>`);
+  });
+}
+
 $(".form-sigin").submit(function (event) {
   event.preventDefault();
 
@@ -89,3 +116,7 @@ function handleRegister(response) {
     }, 5000);
   }
 }
+
+$(document).ready(function(){
+  getNewJobs();
+});

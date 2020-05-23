@@ -101,6 +101,33 @@ class Selection extends Database {
         }
         return null;
     }
+
+    public function selectCompany($id) {
+        $this->query_string = 'SELECT com_id, com_name, com_address, com_email, com_scale, com_contact_name, com_contact_phone
+                FROM Companies WHERE com_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $name, $address, $email, $scale, $contact_name, $contact_phone);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new Company($id, $name, $address, $email, $scale, $contact_name, $contact_phone);
+        }
+        return null;
+    }
+
+    public function getNewJob() {
+        $this->query_string = 'SELECT job_id, job_title, com_name FROM Jobs INNER JOIN Companies ON Jobs.com_id = Companies.com_id LIMIT 20';
+        $this->query();
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $title, $com_name);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new NewJob($id, $title, $com_name));
+        }
+        $this->closeConnection();
+        return $result;
+    }
 }
 
 class Insertion extends Database {

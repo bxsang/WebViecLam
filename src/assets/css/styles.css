@@ -127,13 +127,13 @@
   height: 500px !important;
 }
 
-.job-list ul {
+.job-items {
   overflow: hidden;
   margin: 5px 30px;
   padding: 0;
 }
 
-.job-list ul li {
+.job-items li {
   padding-top: 8px;
   padding-bottom: 8px;
   float: left;
