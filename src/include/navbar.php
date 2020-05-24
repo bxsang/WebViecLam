@@ -18,7 +18,7 @@
             echo '
           <li>
             <div class="dropdown dropleft" id="dropdown_user">
-              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="32" height="32" class="rounded-circle" data-toggle="dropdown">
+              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="50" height="50" class="rounded-circle" data-toggle="dropdown">
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Tài khoản</a>';
             if ($auth->getUserRole() == 'employee') {
@@ -37,15 +37,15 @@
           } else {
             echo '        <li>
             <div class="dropdown" id="dropdown_reg">
-              <a id="btn_reg" class="btn btn-primary action-button" role="button" data-toggle="dropdown">Đăng ký</a>
+              <a id="btn_reg" class="btn btn-primary btn-rounded" role="button" data-toggle="dropdown">Đăng ký</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item btn btn_auth btn_ntd uppercase mb10" href="#" data-toggle="modal" data-target="#signup_ntd">Nhà tuyển dụng</a>
-                <a class="dropdown-item btn btn_auth btn_ntv uppercase" href="#" data-toggle="modal" data-target="#signup_ntv">Người tìm việc</a>
+                <a class="dropdown-item btn btn-success" href="#" data-toggle="modal" data-target="#signup_ntd">Nhà tuyển dụng</a>
+                <a class="dropdown-item btn btn-danger" href="#" data-toggle="modal" data-target="#signup_ntv">Người tìm việc</a>
               </div>
             </div>
           </li>
           <li>
-              <a id="btn_login" class="btn btn-light action-button" role="button" data-toggle="modal" data-target="#signin">Đăng nhập</a>
+              <a id="btn_login" class="btn btn-secondary btn-rounded" role="button" data-toggle="modal" data-target="#signin">Đăng nhập</a>
           </li>';
           }
         ?>
