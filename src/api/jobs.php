@@ -7,23 +7,25 @@ header("Content-Type: application/json; charset=utf-8");
 $auth = new Auth();
 $auth->getTokenFromClient();
 
-try {
-    $role = $auth->decodeToken()->role;
-} catch (\Throwable $th) {
-    echo json_encode([
-        'status' => 'failed',
-        'message' => 'Bạn chưa đăng nhập hoặc lỗi hệ thống'
-    ]);
-    die();
-}
-
-if (!($role == 'admin' || $role == 'employer' || $role == 'employee')) {
-    http_response_code(403);
-    echo json_encode([
-        'status' => 'failed',
-        'message' => 'Bạn không có quyền thực hiện hành động này'
-    ]);
-    die();
+function checkAuth() {
+    try {
+        $role = $auth->decodeToken()->role;
+    } catch (\Throwable $th) {
+        echo json_encode([
+            'status' => 'failed',
+            'message' => 'Bạn chưa đăng nhập hoặc lỗi hệ thống'
+        ]);
+        die();
+    }
+    
+    if (!($role == 'admin' || $role == 'employer' || $role == 'employee')) {
+        http_response_code(403);
+        echo json_encode([
+            'status' => 'failed',
+            'message' => 'Bạn không có quyền thực hiện hành động này'
+        ]);
+        die();
+    }
 }
 
 switch ($_GET['field']) {
