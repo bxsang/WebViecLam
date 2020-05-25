@@ -290,3 +290,19 @@ label {
 .mt85 {
   margin-top: 85px;
 }
+
+.card-user .card-body {
+  padding: 0;
+}
+
+.tab-content {
+  padding-top: 0;
+}
+
+#list-profile form {
+  padding-top: 1.5rem;
+}
+
+#list-applied-jobs .card, #list-saved-jobs .card {
+  width: 100%;
+}
