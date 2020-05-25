@@ -21,9 +21,22 @@ if (isset($_REQUEST['q']) || isset($_REQUEST['city'])) {
     include_once '../include/modals.html';
   ?>
 
-  <div class="container mt68">
+  <div class="container mt85">
+    <form class="form-inline" action="search/" id="search_form">
+      <input name="q" type="search" placeholder="Tìm kiếm công việc, vị trí, công ty,..." class="form-control form-control-lg bg-light mb-2 mr-sm-2 col-sm-7" autofocus>
+      <select name="city" class="browser-default custom-select2 form-control-lg bg-light mb-2 mr-sm-2 col-sm-3">
+        <option selected>Địa điểm</option>
+        <option value="hn">Hà Nội</option>
+        <option value="dn">Đà Nẵng</option>
+        <option value="hcm">Tp. HCM</option>
+      </select>
+      <button id="search_submit" type="submit">
+        <a class="btn-floating btn-sm btn-secondary"><i class="fas fa-search"></i></a>
+      </button>
+    </form>
+
     <div class="container search-container">
-      <h3 class="text-center">Công việc mới đăng</h3>
+      <h3 class="text-center">Kết quả tìm kiếm</h3>
       <div class="row list-job">
 
       <?php
