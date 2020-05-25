@@ -30,7 +30,7 @@
                 <a class="dropdown-item" href="#">Quản lý công việc</a>';
             }
             echo '
-                <a class="dropdown-item" href="logout.php">Đăng xuất</a>
+                <a class="dropdown-item" href="/logout.php">Đăng xuất</a>
               </div>
             </div>
           </li>';
