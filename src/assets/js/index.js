@@ -1,3 +1,15 @@
+function appendCompanies() {
+  for (let i = 0; i < 12; i++) {
+    $(".companies .row").append(`
+  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 p5 mb10 view overlay zoom">
+    <a class="company" href="#">
+      <p class="text-center"><img class="salesLogoImage" src="https://web.archive.org/web/20191015051445/https://network.topdev.vn/uploads/sgf-png-20191009165746.PNG" width="88" height="43" alt=""></p>
+      <p class="text-center"><span class="network-slogan">Base Enterprise</span></p>
+    </a>
+  </div>`);
+  }
+}
+
 function getNewJobs() {
   $.ajax({
     type: "GET",
@@ -12,16 +24,6 @@ function appendNewJobs(jobs) {
   jobs.forEach((item, index) => {
     let title = item.title;
     let com_name = item.com_name;
-    
-  //   $(".job-items").append(
-  // `<li>
-  //   <span class="job-title">
-  //     <a target="_blank" href="https://web.archive.org/web/20200331033319/https://topdev.vn/detail-jobs/business-analyst-3-5-year-experiece-as-white-vietnam-14586" title="Business Analyst (3-5 year experiece)">
-  //       <strong>`+title+`</strong>
-  //     </a>
-  //     <a href="#"><em>`+com_name+`</em></a>
-  //   </span>
-  // </li>`);
 
     $(".list-job").append(`
     <div class="col-6">
@@ -135,6 +137,7 @@ function handleRegister(response) {
   }
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
+  appendCompanies();
   getNewJobs();
 });

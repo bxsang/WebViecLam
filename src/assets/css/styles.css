@@ -4,7 +4,7 @@
 }
 
 #abc {
-  margin-top: 75px;
+  margin-top: 56px;
   text-align: center;
   padding: 40px;
   background: linear-gradient(
@@ -12,6 +12,21 @@
     rgba(125, 250, 250, 0.45)
   ), url(../img/job.jpg) no-repeat;
   background-size: cover;
+}
+
+#dropdown_user img {
+  width: 50px;
+  height: 50px;
+}
+
+#btn_reg, #btn_login {
+  height: 2.5rem;
+  padding-top: .7rem;
+}
+
+#dropdown_reg .dropdown-menu {
+  background-color: transparent;
+  border: none;
 }
 
 select {
@@ -37,6 +52,9 @@ select {
 }
 
 @media only screen and (min-width: 768px) {
+  #abc {
+    margin-top: 68px;
+  }
   .jumbotron {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -72,6 +90,10 @@ select {
   border: none;
 }
 
+.view img {
+  display: initial;
+}
+
 .companies {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -98,6 +120,10 @@ select {
 
 .company:hover{
   text-decoration: none;
+}
+
+.company p {
+  margin-top: revert;
 }
 
 .network-slogan{
@@ -179,15 +205,6 @@ select {
 .job-title em {
   display: block;
   color: gray;
-}
-
-#dropdown_reg .dropdown-menu {
-  background-color: transparent;
-  border: none;
-}
-
-#btn_reg, #btn_login {
-  width: 100%;
 }
 
 .modal-dialog .modal-content {
