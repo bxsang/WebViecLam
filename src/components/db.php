@@ -232,4 +232,32 @@ class Insertion extends Database {
     }
 }
 
+class Search extends Database {
+    private $q;
+    private $city;
+
+    public function __construct($q, $city) {
+        parent::__construct();
+        $this->q = $q;
+        $this->city = $city;
+    }
+
+    public function performSearch() {
+        $this->query_string = 'SELECT Jobs.job_title, Jobs.job_description, Jobs.job_location, Categories.cat_name 
+            FROM ((Jobs INNER JOIN JobCategories ON Jobs.job_id = JobCategories.job_id) INNER JOIN Categories ON JobCategories.cat_name = Categories.cat_name) 
+            WHERE MATCH(Jobs.job_title, Jobs.job_description) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Categories.cat_name) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Jobs.job_location) AGAINST (? IN NATURAL LANGUAGE MODE)';
+        
+        $this->query();
+        $this->stmt->bind_param('sss', $this->q, $this->q, $this->city);
+        $this->stmt->execute();
+        $this->stmt->bind_result($job_title, $job_description, $job_location, $cat_name);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new SearchResult($job_title, $job_description, $job_location, $cat_name));
+        }
+        $this->closeConnection();
+        return $result;
+    }
+}
+
 ?>
