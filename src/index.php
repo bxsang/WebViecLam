@@ -10,9 +10,9 @@
       <div class="container">
         <h1>Chào mừng đến với TopViec</h1>
         <h4>Tìm kiếm những công việc tuyệt vời</h4>
-        <form class="form-inline" action="" id="search_form">
+        <form class="form-inline" action="search/" id="search_form">
           <input name="q" type="search" placeholder="Tìm kiếm công việc, vị trí, công ty,..." class="form-control form-control-lg bg-light mb-2 mr-sm-2 col-sm-7" autofocus>
-          <select name="dia_diem" class="browser-default custom-select2 form-control-lg bg-light mb-2 mr-sm-2 col-sm-3">
+          <select name="city" class="browser-default custom-select2 form-control-lg bg-light mb-2 mr-sm-2 col-sm-3">
             <option selected>Địa điểm</option>
             <option value="hn">Hà Nội</option>
             <option value="dn">Đà Nẵng</option>
@@ -33,7 +33,7 @@
         
       </div>
     </div>
-    <div class="container">
+    <div class="container newjob-container">
       <h3 class="text-center">Công việc mới đăng</h3>
       <div class="row list-job">
         

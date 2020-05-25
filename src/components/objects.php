@@ -186,12 +186,14 @@ class SearchResult {
     public $job_description;
     public $job_location;
     public $cat_name;
+    public $com_name;
 
-    public function __construct($job_title, $job_description, $job_location, $cat_name) {
+    public function __construct($job_title, $job_description, $job_location, $cat_name, $com_name) {
         $this->job_title = $job_title;
         $this->job_description = $job_description;
         $this->job_location = $job_location;
         $this->cat_name = $cat_name;
+        $this->com_name = $com_name;
     }
 }
 

@@ -25,7 +25,7 @@ function appendNewJobs(jobs) {
     let title = item.title;
     let com_name = item.com_name;
 
-    $(".list-job").append(`
+    $(".newjob-container .list-job").append(`
     <div class="col-6">
       <div class="card">
         <div class="card-body">
