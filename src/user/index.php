@@ -1,13 +1,15 @@
 <?php
-  // require_once $_SERVER['DOCUMENT_ROOT'].'/components/auth.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/components/auth.php';
 
-  // $auth = new Auth();
-  // $auth->getTokenFromClient();
+  $auth = new Auth();
+  $auth->getTokenFromClient();
 
-  // if (!$auth->isLoggedIn()) {
-  //   echo 'Bạn chưa đăng nhập';
-  //   die();
-  // }
+  if (!$auth->isLoggedIn()) {
+    echo 'Bạn chưa đăng nhập';
+    die();
+  }
+
+  $role = $auth->getUserRole();
 ?>
 
 <?php include_once '../include/header.html'; ?>
@@ -33,21 +35,34 @@
             </div>
 
             <div class="list-group menu-employee" role="tablist">
+            <?php
+            if ($role == 'employee') {
+              echo '
               <a class="list-group-item list-group-item-action active" id="list-employee-profile-list" data-toggle="list" href="#list-employee-profile"
-                role="tab" aria-controls="home">Thông tin cá nhân</a>
-
-              <a class="list-group-item list-group-item-action" id="list-employer-profile-list" data-toggle="list" href="#list-employer-profile"
-                role="tab" aria-controls="home">Thông tin nhà tuyển dụng</a>
-
+                role="tab" aria-controls="home">Thông tin cá nhân</a>';
+            } elseif ($role == 'employer') {
+              echo '
+              <a class="list-group-item list-group-item-action active" id="list-employer-profile-list" data-toggle="list" href="#list-employer-profile"
+                role="tab" aria-controls="home">Thông tin nhà tuyển dụng</a>';
+            }
+            
+            if ($role == 'employee') {
+              echo '
               <a class="list-group-item list-group-item-action" id="list-applied-jobs-list" data-toggle="list" href="#list-applied-jobs"
                 role="tab" aria-controls="profile">Việc làm đã ứng tuyển</a>
               <a class="list-group-item list-group-item-action" id="list-saved-jobs-list" data-toggle="list" href="#list-saved-jobs"
-                role="tab" aria-controls="settings">Việc làm đã lưu</a>
+                role="tab" aria-controls="settings">Việc làm đã lưu</a>';
+            }
+            ?>
               <a class="list-group-item list-group-item-action" id="list-search-jobs-list" data-toggle="list" href="#list-search-jobs"
                 role="tab" aria-controls="messages">Tìm kiếm việc làm</a>
 
-              <a class="list-group-item list-group-item-action" id="list-manage-jobs-list" data-toggle="list" href="#list-manage-jobs"
-                role="tab" aria-controls="settings">Quản lý công việc</a>
+            <?php
+              if ($role == 'employer') {
+                echo '<a class="list-group-item list-group-item-action" id="list-manage-jobs-list" data-toggle="list" href="#list-manage-jobs"
+                role="tab" aria-controls="settings">Quản lý công việc</a>';
+              }
+            ?>
 
             </div>
           </div>
@@ -55,6 +70,9 @@
 
         <div class="col-lg-8 pb-5">
           <div class="tab-content" id="nav-tabContent">
+            <?php
+            if ($role == 'employee') {
+              echo '
             <div class="tab-pane fade show active" id="list-employee-profile" role="tabpanel" aria-labelledby="list-employee-profile-list">
               <h1>Chỉnh sửa thông tin cá nhân</h1>
               <form class="row">
@@ -86,9 +104,10 @@
                   <button class="btn btn-rounded btn-lg blue-gradient text-uppercase" type="submit">Cập nhật</button>
                 </div>
               </form>
-            </div>
-
-            <div class="tab-pane fade" id="list-employer-profile" role="tabpanel" aria-labelledby="list-employer-profile-list">
+            </div>';
+            } elseif ($role == 'employer') {
+              echo '
+            <div class="tab-pane fade show active" id="list-employer-profile" role="tabpanel" aria-labelledby="list-employer-profile-list">
               <h1>Chỉnh sửa thông tin nhà tuyển dụng</h1>
               <form class="row">
                 <div class="col-md-6">
@@ -142,8 +161,11 @@
                   <button class="btn btn-rounded btn-lg blue-gradient text-uppercase" type="submit">Cập nhật</button>
                 </div>
               </form>
-            </div>
-  
+            </div>';
+            }
+
+            if ($role == 'employee') {
+              echo '
             <div class="tab-pane fade" id="list-applied-jobs" role="tabpanel" aria-labelledby="list-applied-jobs-list">
               <h1>Việc làm đã ứng tuyển</h1>
               <div class="row list-job">
@@ -162,7 +184,6 @@
                 </div>
               </div>
             </div>
-
             <div class="tab-pane fade" id="list-saved-jobs" role="tabpanel" aria-labelledby="list-saved-jobs-list">
               <h1>Việc làm đã lưu</h1>
               <div class="row list-job">
@@ -180,7 +201,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>';
+            }
+            ?>
 
             <div class="tab-pane fade" id="list-search-jobs" role="tabpanel" aria-labelledby="list-search-jobs-list">
               <h1>Tìm kiếm việc làm</h1>
@@ -198,6 +221,9 @@
                 </form>
             </div>
 
+            <?php
+            if ($role == 'employer') {
+              echo '
             <div class="tab-pane fade" id="list-manage-jobs" role="tabpanel" aria-labelledby="list-manage-jobs-list">
               <div id="manage_job_title">
                 <h1>Quản lý công việc</h1>
@@ -218,7 +244,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>';
+            }
+            ?>
 
           </div>
         </div>
