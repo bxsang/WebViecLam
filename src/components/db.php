@@ -232,6 +232,30 @@ class Insertion extends Database {
     }
 }
 
+class Update extends Database {
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function execute() {
+        $this->stmt->execute();
+        if ($this->stmt->affected_rows == 1) {
+            $this->closeConnection();
+            $this->status = true;
+        }
+        else {
+            $this->status = false;
+        }
+    }
+
+    public function updateEmployee($id, $name, $phone_number, $email, $password) {
+        $this->query_string = 'UPDATE Employees INNER JOIN Files ON Employees.ee_id = Files.ee_id SET Files.ee_name = ?, Employees.ee_phone_number = ?, Employees.ee_email = ?, Employees.ee_password = sha1(?) WHERE Employees.ee_id = ?';
+        $this->query();
+        $this->stmt->bind_param('ssssi', $name, $phone_number, $email, $password, $id);
+        $this->execute();
+    }
+}
+
 class Search extends Database {
     private $q;
     private $city;
