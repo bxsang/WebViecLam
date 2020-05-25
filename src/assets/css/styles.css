@@ -303,6 +303,14 @@ label {
   padding-top: 1.5rem;
 }
 
-#list-applied-jobs .card, #list-saved-jobs .card {
+#list-applied-jobs .card, #list-saved-jobs .card, #list-manage-jobs .card {
   width: 100%;
+}
+
+#list-manage-jobs #manage_job_title {
+  display: inline-flex;
+}
+
+#list-manage-jobs #manage_job_title button {
+  margin-left: 2.5rem;
 }
