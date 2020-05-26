@@ -2,8 +2,8 @@
 require $_SERVER['PWD']."/vendor/autoload.php";
 require_once $_SERVER['DOCUMENT_ROOT'].'/components/db.php';
 
-if (isset($_REQUEST['field'])) {
-    $field = $_REQUEST['field'];
+if (isset($_POST['field'])) {
+    $field = $_POST['field'];
     $db = new Update();
     header("Content-Type: application/json; charset=utf-8");
 }

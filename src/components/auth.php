@@ -56,6 +56,10 @@ class Auth {
     public function getUserRole() {
         return $this->decodeToken()->role;
     }
+
+    public function getUserId() {
+        return $this->decodeToken()->id;
+    }
 }
 
 ?>

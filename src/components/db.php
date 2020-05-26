@@ -239,7 +239,7 @@ class Update extends Database {
 
     public function execute() {
         $this->stmt->execute();
-        if ($this->stmt->affected_rows == 1) {
+        if ($this->stmt->affected_rows != 0) {
             $this->closeConnection();
             $this->status = true;
         }

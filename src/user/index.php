@@ -10,6 +10,7 @@
   }
 
   $role = $auth->getUserRole();
+  $id = $auth->getUserId();
 ?>
 
 <?php include_once '../include/header.html'; ?>
@@ -75,7 +76,9 @@
               echo '
             <div class="tab-pane fade show active" id="list-employee-profile" role="tabpanel" aria-labelledby="list-employee-profile-list">
               <h1>Chỉnh sửa thông tin cá nhân</h1>
-              <form class="row">
+              <form class="row form-update-employee">
+              <input type="hidden" name="field" value="employee"> 
+              <input type="hidden" name="id" value="'.$id.'"> 
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Họ và tên</label>
