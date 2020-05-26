@@ -1,5 +1,6 @@
 $(document).ready(function() {
     getEmployeeInfo();
+    getEmployeeAppliedJobs();
 });
 
 function getEmployeeInfo() {
@@ -26,8 +27,30 @@ function getEmployeeAppliedJobs() {
     type: "GET",
     url: window.location.protocol+'//'+window.location.hostname+'/api/jobs.php?field=applied',
     success: function (response) {
-      console.log(response);
+      appendAppliedJobs(response);
     }
+  });
+}
+
+function appendAppliedJobs(jobs) {
+  jobs.forEach((item, index) => {
+    let title = item.title;
+    let com_name = item.com_name;
+
+    $("#list-applied-jobs .list-job").append(`
+  <div class="card">
+    <div class="card-body">
+      <div class="logo-box">
+        <img src="https://salt.topdev.vn/JlorGxjbwWuLgupzcV2BewxBjpQlYLnCYf9my4-qpv4/fit/120/0/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ZpbGVzL2xvZ29zL2I4ZGIzYTBhMjE4NzdhOGQ4Y2ZhODEwM2EyNmFhM2FlLmpwZw/b8db3a0a21877a8d8cfa8103a26aa3ae.jpg">
+      </div>
+      <div class="job-content">
+        <a target="_blank" href="#">
+          <strong><h4>`+title+`</h4></strong>
+        </a>
+        <a href="#"><em>`+com_name+`</em></a>
+      </div>
+    </div>
+  </div>`);
   });
 }
   
