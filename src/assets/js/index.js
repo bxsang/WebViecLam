@@ -91,15 +91,15 @@ function handleRegister(response) {
   if (response.status === 'success') {
     console.log("Employee registration success!!!");
     $("#signup_ntv").modal('toggle');
-    $("#signup_success").modal('toggle');
+    $("#modal_success").modal('toggle');
     setTimeout(() => {
-      $("#signup_success").modal('toggle');
+      $("#modal_success").modal('toggle');
     }, 5000);
   } else {
     console.log("Employee registration failed");
-    $("#signup_failed").modal('toggle');
+    $("#modal_failed").modal('toggle');
     setTimeout(() => {
-      $("#signup_failed").modal('toggle');
+      $("#modal_failed").modal('toggle');
     }, 5000);
   }
 }
@@ -124,15 +124,15 @@ function handleRegister(response) {
   if (response.status === 'success') {
     console.log("Employer registration success!!!");
     $("#signup_ntd").modal('toggle');
-    $("#signup_success").modal('toggle');
+    $("#modal_success").modal('toggle');
     setTimeout(() => {
-      $("#signup_success").modal('toggle');
+      $("#modal_success").modal('toggle');
     }, 5000);
   } else {
     console.log("Employer registration failed");
-    $("#signup_failed").modal('toggle');
+    $("#modal_failed").modal('toggle');
     setTimeout(() => {
-      $("#signup_failed").modal('toggle');
+      $("#modal_failed").modal('toggle');
     }, 5000);
   }
 }
@@ -156,15 +156,15 @@ $(".form-update-employee").submit(function (event) {
 function handleEmployeeChange(response) {
   if (response.status === 'success') {
     console.log("Update employee success!!!");
-    $("#signup_success").modal('toggle');
+    $("#modal_success").modal('toggle');
     setTimeout(() => {
-      $("#signup_success").modal('toggle');
+      $("#modal_success").modal('toggle');
     }, 5000);
   } else {
     console.log("Update employee failed");
-    $("#signup_failed").modal('toggle');
+    $("#modal_failed").modal('toggle');
     setTimeout(() => {
-      $("#signup_failed").modal('toggle');
+      $("#modal_failed").modal('toggle');
     }, 5000);
   }
 }
