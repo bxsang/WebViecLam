@@ -6,6 +6,7 @@ header("Content-Type: application/json; charset=utf-8");
 
 $auth = new Auth();
 $auth->getTokenFromClient();
+$id = $auth->getUserId();
 
 function checkAuth() {
     try {
@@ -37,6 +38,11 @@ switch ($_GET['field']) {
     case 'all':
         $selection = new Selection();
         echo json_encode($selection->getAllJobs());
+        break;
+
+    case 'applied':
+        $selection = new Selection();
+        echo json_encode($selection->getAppliedJobs($id));
         break;
     
     default:

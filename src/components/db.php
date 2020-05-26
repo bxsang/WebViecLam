@@ -172,6 +172,22 @@ class Selection extends Database {
         }
         return null;
     }
+
+    public function getAppliedJobs($id) {
+        $this->query_string = 'SELECT b.job_id, b.job_title, b.job_salary, b.job_people_num, b.job_type, b.job_description, b.job_requirement, b.job_location, b.job_created_at, b.job_expiry_at, b.com_id
+        FROM Applicants a INNER JOIN Jobs b ON a.job_id = b.job_id
+        WHERE a.ee_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $title, $salary, $people_num, $type, $description, $requirement, $location, $created_at, $expiry_at, $com_id);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new Job($id, $title, $salary, $people_num, $type, $description, $requirement, $location, $created_at, $expiry_at, $com_id));
+        }
+        $this->closeConnection();
+        return $result;
+    }
 }
 
 class Insertion extends Database {

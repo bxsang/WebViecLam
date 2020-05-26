@@ -82,42 +82,42 @@
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Họ và tên</label>
-                    <input class="form-control" type="text" name="name" placeholder="Họ và tên" required=""></input>
+                    <input id="form_employee_name" class="form-control" type="text" name="name" placeholder="Họ và tên" required=""></input>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Số điện thoại</label>
-                    <input type="text" name="phone_number" class="form-control" placeholder="Số điện thoại" required="">
+                    <input id="form_employee_phone" type="text" name="phone_number" class="form-control" placeholder="Số điện thoại" required="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                    <input id="form_employee_email" type="email" name="email" class="form-control" placeholder="Email" required="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Ngày sinh</label>
-                    <input type="text" name="birth_date" class="form-control" placeholder="Ngày sinh">
+                    <input id="form_employee_birth_date" type="text" name="birth_date" class="form-control" placeholder="Ngày sinh">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Địa chỉ</label>
-                    <input type="text" name="address" class="form-control" placeholder="Địa chỉ">
+                    <input id="form_employee_address" type="text" name="address" class="form-control" placeholder="Địa chỉ">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Giới tính</label>
                     <div class="form-check form-check-inline">
-                      <input type="radio" class="form-check-input" id="gender_male" name="gender_male">
+                      <input type="radio" class="form-check-input" id="form_employee_gender_male" name="gender_male">
                       <label class="form-check-label" for="gender_male">Nam</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input type="radio" class="form-check-input" id="gender_female" name="gender_female">
+                      <input type="radio" class="form-check-input" id="form_employee_gender_female" name="gender_female">
                       <label class="form-check-label" for="gender_female">Nữ</label>
                     </div>
                   </div>
@@ -125,13 +125,13 @@
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Trình độ học vấn</label>
-                    <input type="text" name="academic_level" class="form-control" placeholder="Trình độ học vấn">
+                    <input id="form_employee_academic" type="text" name="academic_level" class="form-control" placeholder="Trình độ học vấn">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Mật khẩu</label>
-                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required="">
+                    <input id="form_employee_password" type="password" name="password" class="form-control" placeholder="Mật khẩu" required="">
                   </div>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">
@@ -292,6 +292,7 @@
 
   <script src="../assets/mdb/js/jquery.min.js"></script>
   <script src="../assets/js/index.js"></script>
+  <script src="user.js"></script>
   <script src="../assets/mdb/js/bootstrap.min.js"></script>
 </body>
 </html>
