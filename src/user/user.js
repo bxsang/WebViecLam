@@ -20,4 +20,14 @@ function handleEmployeeInfo(employee) {
   $("#form_employee_address").val(employee.address);
   $("#form_employee_academic").val(employee.academic_level);
 }
+
+function getEmployeeAppliedJobs() {
+  $.ajax({
+    type: "GET",
+    url: window.location.protocol+'//'+window.location.hostname+'/api/jobs.php?field=applied',
+    success: function (response) {
+      console.log(response);
+    }
+  });
+}
   
