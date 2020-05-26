@@ -197,4 +197,47 @@ class SearchResult {
     }
 }
 
+class EmployeeInfo {
+    public $name;
+    public $phone_number;
+    public $email;
+    public $birth_date;
+    public $address;
+    public $gender;
+    public $academic_level;
+
+    public function __construct($name, $phone_number, $email, $birth_date, $address, $gender, $academic_level) {
+        $this->name = $name;
+        $this->phone_number = $phone_number;
+        $this->email = $email;
+        $this->birth_date = $birth_date;
+        $this->address = $address;
+        $this->gender = $gender;
+        $this->academic_level = $academic_level;
+    }
+}
+
+class EmployerInfo {
+    // Account info
+    public $acc_email;
+
+    // Company info
+    public $name;
+    public $address;
+    public $com_email;
+    public $scale;
+    public $contact_name;
+    public $contact_phone;
+
+    public function __construct($acc_email, $name, $address, $com_email, $scale, $contact_name, $contact_phone) {
+        $this->acc_email = $acc_email;
+        $this->name = $name;
+        $this->address = $address;
+        $this->com_email = $com_email;
+        $this->scale = $scale;
+        $this->contact_name = $contact_name;
+        $this->contact_phone = $contact_phone;
+    }
+}
+
 ?>

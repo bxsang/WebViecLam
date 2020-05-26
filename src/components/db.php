@@ -142,6 +142,36 @@ class Selection extends Database {
         $this->closeConnection();
         return $result;
     }
+
+    public function getEmployeeInfo($id) {
+        $this->query_string = 'SELECT Files.ee_name, Employees.ee_phone_number, Employees.ee_email, Files.ee_birth_date, Files.ee_address, Files.ee_gender, Files.ee_academic_level
+            FROM Employees INNER JOIN Files ON Employees.ee_id = Files.ee_id
+            WHERE Employees.ee_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($name, $phone_number, $email, $birth_date, $address, $gender, $academic_level);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new EmployeeInfo($name, $phone_number, $email, $birth_date, $address, $gender, $academic_level);
+        }
+        return null;
+    }
+
+    public function getEmployerInfo($id) {
+        $this->query_string = 'SELECT Employers.er_email, Companies.com_name, Companies.com_address, Companies.com_email, Companies.com_scale, Companies.com_contact_name, Companies.com_contact_phone
+        FROM Employers INNER JOIN Companies ON Employers.com_id = Companies.com_id
+        WHERE Employers.er_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($acc_email, $name, $address, $com_email, $scale, $com_name, $contact_phone);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new EmployerInfo($acc_email, $name, $address, $com_email, $scale, $com_name, $contact_phone);
+        }
+        return null;
+    }
 }
 
 class Insertion extends Database {
