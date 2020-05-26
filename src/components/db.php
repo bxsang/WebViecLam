@@ -248,10 +248,12 @@ class Update extends Database {
         }
     }
 
-    public function updateEmployee($id, $name, $phone_number, $email, $password) {
-        $this->query_string = 'UPDATE Employees INNER JOIN Files ON Employees.ee_id = Files.ee_id SET Files.ee_name = ?, Employees.ee_phone_number = ?, Employees.ee_email = ?, Employees.ee_password = sha1(?) WHERE Employees.ee_id = ?';
+    public function updateEmployee($id, $name, $phone_number, $email, $password, $birth_date, $address, $gender, $academic_level) {
+        $this->query_string = 'UPDATE Employees INNER JOIN Files ON Employees.ee_id = Files.ee_id 
+            SET Files.ee_name = ?, Employees.ee_phone_number = ?, Employees.ee_email = ?, Employees.ee_password = sha1(?), Files.ee_birth_date = ?, Files.ee_address = ?, Files.ee_gender = ?, Files.ee_academic_level = ?, Employees.ee_modified_at = CURRENT_DATE()
+            WHERE Employees.ee_id = ?';
         $this->query();
-        $this->stmt->bind_param('ssssi', $name, $phone_number, $email, $password, $id);
+        $this->stmt->bind_param('ssssssssi', $name, $phone_number, $email, $password, $birth_date, $address, $gender, $academic_level, $id);
         $this->execute();
     }
 }

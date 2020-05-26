@@ -40,8 +40,18 @@ switch ($field) {
         $phone_number = $_POST['phone_number'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $birth_date = $_POST['birth_date'];
+        $address = $_POST['address'];
+        if ($_POST['gender_male'] == 'on') {
+            $gender = 'Nam';
+        } elseif ($_POST['gender_female'] == 'on') {
+            $gender = 'Nữ';
+        } else {
+            $gender = 'not_defined';
+        }
+        $academic_level = $_POST['academic_level'];
 
-        $db->updateEmployee($id, $name, $phone_number, $email, $password);
+        $db->updateEmployee($id, $name, $phone_number, $email, $password, $birth_date, $address, $gender, $academic_level);
         break;
     
     // case 'employer':

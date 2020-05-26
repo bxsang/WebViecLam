@@ -99,6 +99,37 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
+                    <label>Ngày sinh</label>
+                    <input type="text" name="birth_date" class="form-control" placeholder="Ngày sinh">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="address" class="form-control" placeholder="Địa chỉ">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <label>Giới tính</label>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input" id="gender_male" name="gender_male">
+                      <label class="form-check-label" for="gender_male">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input" id="gender_female" name="gender_female">
+                      <label class="form-check-label" for="gender_female">Nữ</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <label>Trình độ học vấn</label>
+                    <input type="text" name="academic_level" class="form-control" placeholder="Trình độ học vấn">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
                     <label>Mật khẩu</label>
                     <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required="">
                   </div>
