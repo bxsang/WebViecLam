@@ -78,7 +78,7 @@
               <h1>Chỉnh sửa thông tin cá nhân</h1>
               <form class="row form-update-employee">
               <input type="hidden" name="field" value="employee"> 
-              <input type="hidden" name="id" value="'.$id.'"> 
+              <input type="hidden" name="id" value="'.$id.'">
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Họ và tên</label>
@@ -143,30 +143,38 @@
               echo '
             <div class="tab-pane fade show active" id="list-employer-profile" role="tabpanel" aria-labelledby="list-employer-profile-list">
               <h1>Chỉnh sửa thông tin nhà tuyển dụng</h1>
-              <form class="row">
+              <form class="row form-update-employer">
+                <input type="hidden" name="field" value="employer"> 
+                <input type="hidden" name="id" value="'.$id.'">
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Email tài khoản</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                    <input id="form-employer-acc_email" type="email" name="acc_email" class="form-control" placeholder="Email tài khoản" required="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Tên công ty</label>
-                    <input type="text" name="company_name" class="form-control" placeholder="Tên công ty" required="">
+                    <input id="form-employer-name" type="text" name="name" class="form-control" placeholder="Tên công ty" required="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label>Tỉnh/thành hoạt động</label>
-                  <select id="inputCompanyProvice" name="address" class="custom-select mb-3">
-                    <option value="hn">Hà Nội</option>
-                    <option value="dn">Đà Nẵng</option>
-                    <option value="hcm">Hồ Chí Minh</option>
+                  <select id="form-employer-address" name="address" class="custom-select mb-3">
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Đà Nẵng">Đà Nẵng</option>
+                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
                   </select>
                 </div>
                 <div class="col-md-6">
+                  <div class="form-label-group">
+                    <label>Email công ty</label>
+                    <input id="form-employer-com_email" type="email" name="com_email" class="form-control" placeholder="Email công ty" required="">
+                  </div>
+                </div>
+                <div class="col-md-6">
                   <label>Quy mô nhân sự</label>
-                  <select id="inputCompanyScale" name="scale" class="custom-select mb-3">
+                  <select id="form-employer-scale" name="scale" class="custom-select mb-3">
                     <option value="1">Dưới 20 người</option>
                     <option value="2">20-150 người</option>
                     <option value="3">150-300 người</option>
@@ -176,19 +184,13 @@
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>Tên người liên hệ</label>
-                    <input type="text" id="inputCompanyRepresentative" name="contact_name" class="form-control" placeholder="Tên người liên hệ" required="">
+                    <input type="text" id="form-employer-contact_name" name="contact_name" class="form-control" placeholder="Tên người liên hệ" required="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <label>SĐT liên hệ</label>
-                    <input type="text" id="inputCompanyPhone" name="contact_phone" class="form-control" placeholder="SĐT liên hệ" required="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <label>Email liên hệ</label>
-                    <input type="email" id="inputCompanyEmail" name="contact_email" class="form-control" placeholder="Email liên hệ" required="">
+                    <input type="text" id="form-employer-contact_phone" name="contact_phone" class="form-control" placeholder="SĐT liên hệ" required="">
                   </div>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">

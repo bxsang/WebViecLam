@@ -1,6 +1,7 @@
 $(document).ready(function() {
     getEmployeeInfo();
     getEmployeeAppliedJobs();
+    getEmployerInfo();
 });
 
 function getEmployeeInfo() {
@@ -52,5 +53,25 @@ function appendAppliedJobs(jobs) {
     </div>
   </div>`);
   });
+}
+
+function getEmployerInfo() {
+  $.ajax({
+    type: "GET",
+    url: window.location.protocol+'//'+window.location.hostname+'/api/user.php?field=get-info',
+    success: function (response) {
+      handleEmployerInfo(response);
+    }
+  });
+}
+
+function handleEmployerInfo(employer) {
+  $("#form-employer-acc_email").val(employer.acc_email);
+  $("#form-employer-name").val(employer.name);
+  $("#form-employer-address").val(employer.address);
+  $("#form-employer-com_email").val(employer.com_email);
+  $("#form-employer-scale").val(employer.scale);
+  $("#form-employer-contact_name").val(employer.contact_name);
+  $("#form-employer-contact_phone").val(employer.contact_phone);
 }
   

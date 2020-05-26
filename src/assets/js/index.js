@@ -169,6 +169,38 @@ function handleEmployeeChange(response) {
   }
 }
 
+$(".form-update-employer").submit(function (event) {
+  event.preventDefault();
+
+  let form = $(this);
+  let url = window.location.protocol+'//'+window.location.hostname+'/api/update.php';
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: form.serialize(),
+    success: function (response) {
+      handleEmployerChange(response);
+    }
+  });
+});
+
+function handleEmployerChange(response) {
+  if (response.status === 'success') {
+    console.log("Update employee success!!!");
+    $("#modal_success").modal('toggle');
+    setTimeout(() => {
+      $("#modal_success").modal('toggle');
+    }, 5000);
+  } else {
+    console.log("Update employee failed");
+    $("#modal_failed").modal('toggle');
+    setTimeout(() => {
+      $("#modal_failed").modal('toggle');
+    }, 5000);
+  }
+}
+
 $(document).ready(function() {
   appendCompanies();
   getNewJobs();
