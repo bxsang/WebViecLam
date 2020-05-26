@@ -18,22 +18,6 @@ switch ($field) {
     //     $db->updateAdmin($id, $name, $password, $email);
     //     break;
 
-    // case 'employee':
-    //     $id = $_REQUEST['id'];
-    //     $name = $_REQUEST['name'];
-    //     $password = $_REQUEST['password'];
-    //     $email = $_REQUEST['email'];
-    //     $gender = $_REQUEST['gender'];
-    //     $address = $_REQUEST['address'];
-    //     $current_occupation = $_REQUEST['current_occupation'];
-    //     $phone_number = $_REQUEST['phone_number'];
-    //     $avatar_path = 'avatar/employees/1.jpg';
-    //     $experience = $_REQUEST['experience'];
-    //     $cv_path = 'cv/1.docx';
-
-    //     $db->updateEmployee($id, $name, $password, $email, $gender, $address, $current_occupation, $phone_number, $avatar_path, $experience, $cv_path);
-    //     break;
-
     case 'employee':
         $id = $_POST['id'];
         $name = $_POST['name'];
@@ -53,20 +37,19 @@ switch ($field) {
 
         $db->updateEmployee($id, $name, $phone_number, $email, $password, $birth_date, $address, $gender, $academic_level);
         break;
-    
-    // case 'employer':
-    //     $id = $_REQUEST['id'];
-    //     $name = $_REQUEST['name'];
-    //     $password = $_REQUEST['password'];
-    //     $email = $_REQUEST['email'];
-    //     $gender = $_REQUEST['gender'];
-    //     $address = $_REQUEST['address'];
-    //     $phone_number = $_REQUEST['phone_number'];
-    //     $avatar_path = 'avatar/employers/2.jpg';
-    //     $com_id = $_REQUEST['com_id'];
 
-    //     $db->updateEmployer($id, $name, $password, $email, $gender, $address, $phone_number, $avatar_path, $com_id);
-    //     break;
+    case 'employer':
+        $id = $_POST['id'];
+        $acc_email = $_POST['acc_email'];
+        $name = $_POST['name'];
+        $address = $_POST['address'];
+        $com_email = $_POST['com_email'];
+        $scale = $_POST['scale'];
+        $contact_name = $_POST['contact_name'];
+        $contact_phone = $_POST['contact_phone'];
+
+        $db->updateEmployer($id, $acc_email, $name, $address, $com_email, $scale, $contact_name, $contact_phone);
+        break;
 
     // case 'company':
     //     $id = $_REQUEST['id'];

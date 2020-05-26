@@ -301,6 +301,15 @@ class Update extends Database {
         $this->stmt->bind_param('ssssssssi', $name, $phone_number, $email, $password, $birth_date, $address, $gender, $academic_level, $id);
         $this->execute();
     }
+
+    public function updateEmployer($id, $acc_email, $name, $address, $com_email, $scale, $contact_name, $contact_phone) {
+        $this->query_string = 'UPDATE Employers a INNER JOIN Companies b ON a.com_id = b.com_id
+        SET a.er_email = ?, b.com_name = ?, b.com_address = ?, b.com_email = ?, b.com_scale = ?, b.com_contact_name = ?, b.com_contact_phone = ?, a.er_modified_at = CURRENT_DATE()
+        WHERE a.er_id = ?';
+        $this->query();
+        $this->stmt->bind_param('ssssissi', $acc_email, $name, $address, $com_email, $scale, $contact_name, $contact_phone, $id);
+        $this->execute();
+    }
 }
 
 class Search extends Database {

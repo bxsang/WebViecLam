@@ -146,7 +146,7 @@
               <form class="row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <label>Email</label>
+                    <label>Email tài khoản</label>
                     <input type="email" name="email" class="form-control" placeholder="Email" required="">
                   </div>
                 </div>
