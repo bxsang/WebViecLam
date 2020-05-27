@@ -20,7 +20,7 @@
             <div class="dropdown dropleft" id="dropdown_user">
               <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="50" height="50" class="rounded-circle" data-toggle="dropdown">
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Tài khoản</a>';
+                <a class="dropdown-item" href="/user/">Tài khoản</a>';
             if ($auth->getUserRole() == 'employee') {
               echo '
                 <a class="dropdown-item" href="#">Việc đã ứng tuyển</a>';
