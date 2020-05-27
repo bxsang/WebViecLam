@@ -4,11 +4,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/components/db.php';
 
 header("Content-Type: application/json; charset=utf-8");
 
-$auth = new Auth();
-$auth->getTokenFromClient();
-$id = $auth->getUserId();
-
 function checkAuth() {
+    $auth = new Auth();
+    $auth->getTokenFromClient();
+    $id = $auth->getUserId();
+    
     try {
         $role = $auth->decodeToken()->role;
     } catch (\Throwable $th) {

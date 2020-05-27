@@ -39,7 +39,7 @@ switch ($field) {
         $location = $_POST['location'];
         $people_num = $_POST['people_num'];
         $type = $_POST['type'];
-        $com_id = $_POST['com_id'];
+        $com_id = $auth->decodeToken()->com_id;
 
         $db->insertJob($title, $salary, $description, $requirement, $expiry_at, $location, $people_num, $type, $com_id);
         $db->insertJobCategories($db->getInsertId(), $category);

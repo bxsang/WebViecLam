@@ -20,11 +20,20 @@ class Auth {
     }
 
     public function genrateToken($user, $role) {
-        $elements = [
-            'username' => $user->username,
-            'id' => $user->id,
-            'role' => $role
-        ];
+        if ($role == 'employer') {
+            $elements = [
+                'username' => $user->username,
+                'id' => $user->id,
+                'role' => $role,
+                'com_id' => $user->com_id
+            ];
+        } else {
+            $elements = [
+                'username' => $user->username,
+                'id' => $user->id,
+                'role' => $role
+            ];
+        }
         $this->token = JWT::encode($elements, $this->secret);
     }
 
