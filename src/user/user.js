@@ -74,4 +74,3 @@ function handleEmployerInfo(employer) {
   $("#form-employer-contact_name").val(employer.contact_name);
   $("#form-employer-contact_phone").val(employer.contact_phone);
 }
-  
