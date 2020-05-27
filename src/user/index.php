@@ -251,7 +251,7 @@
             <div class="tab-pane fade" id="list-manage-jobs" role="tabpanel" aria-labelledby="list-manage-jobs-list">
               <div id="manage_job_title">
                 <h1>Quản lý công việc</h1>
-                <button class="btn btn-success btn-rounded"><i class="fas fa-plus mr-1"></i> Tạo mới</button>
+                <button id="btn_add_job" class="btn btn-success btn-rounded"><i class="fas fa-plus mr-1"></i> Tạo mới</button>
               </div>
               <div class="row list-job">
                 <div class="card">
