@@ -134,6 +134,62 @@
   </div>
 </div>
 
+<div class="modal fade" id="add_job">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5 class="card-title text-center">Đăng việc làm mới</h5>
+        <form class="form-add-job">
+          <div class="form-label-group">
+          <input type="hidden" name="field" value="job">
+          <label>Tiêu đề</label>
+            <input type="text" id="input_job_title" name="title" class="form-control" placeholder="Tiêu đề" required="" autofocus="">
+          </div>
+          <label>Thể loại công việc</label>
+          <select id="input_job_category" name="category" class="custom-select mb-3">
+            <option value="Lập trình">Lập trình</option>
+            <option value="Nhân viên văn phòng">Nhân viên văn phòng</option>
+            <option value="Xây dựng">Xây dựng</option>
+          </select>
+          <div class="form-label-group">
+            <label>Mức lương</label>
+            <input type="text" id="input_job_salary" name="salary" class="form-control" placeholder="Số điện thoại" required="">
+          </div>
+          <div class="form-label-group">
+            <label>Mô tả công việc</label>
+            <input type="text" id="input_job_description" name="description" class="form-control" placeholder="Mô tả công việc" required="">
+          </div>
+          <div class="form-label-group">
+            <label>Yêu cầu</label>
+            <input type="text" id="input_job_requirement" name="requirement" class="form-control" placeholder="Yêu cầu" required="">
+          </div>
+          <div class="form-label-group">
+            <label>Ngày hết hạn nộp</label>
+            <input type="text" id="input_job_expiry_date" name="expiry_at" class="form-control" placeholder="Ngày hết hạn nộp" required="">
+          </div>
+          <div class="form-label-group">
+            <label>Địa điểm làm việc</label>
+            <input type="text" id="input_job_location" name="location" class="form-control" placeholder="Địa điểm làm việc" required="">
+          </div>
+          <div class="form-label-group">
+            <label>Số lượng cần tuyển</label>
+            <input type="text" id="input_job_people_num" name="people_num" class="form-control" placeholder="Số lượng cần tuyển" required="">
+          </div>
+          <label>Hình thức</label>
+          <select id="input_job_type" name="type" class="custom-select mb-3">
+            <option value="Part time">Part time</option>
+            <option value="Full time">Full time</option>
+          </select>
+          <input type="hidden" name="com_id" value="2">
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-rounded btn-lg blue-gradient text-uppercase" type="submit">Thêm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="modal_success">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">

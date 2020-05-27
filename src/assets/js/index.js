@@ -201,6 +201,38 @@ function handleEmployerChange(response) {
   }
 }
 
+$(".form-add-job").submit(function (event) {
+  event.preventDefault();
+
+  let form = $(this);
+  let url = window.location.protocol+'//'+window.location.hostname+'/api/add.php';
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: form.serialize(),
+    success: function (response) {
+      handleAddJob(response);
+    }
+  });
+});
+
+function handleAddJob(response) {
+  if (response.status === 'success') {
+    console.log("Add job success!!!");
+    $("#modal_success").modal('toggle');
+    setTimeout(() => {
+      $("#modal_success").modal('toggle');
+    }, 5000);
+  } else {
+    console.log("Add job failed");
+    $("#modal_failed").modal('toggle');
+    setTimeout(() => {
+      $("#modal_failed").modal('toggle');
+    }, 5000);
+  }
+}
+
 $(document).ready(function() {
   appendCompanies();
   getNewJobs();
