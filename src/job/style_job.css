@@ -1,0 +1,13 @@
+.job{
+    float: left;
+    width:65%;
+    padding: 26px;
+   
+  }
+
+.detail_job{
+    padding: 10px;
+    float:left;
+    width:33%;
+    margin-left:20px;
+}
