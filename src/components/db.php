@@ -117,7 +117,7 @@ class Selection extends Database {
     }
 
     public function getNewJob() {
-        $this->query_string = 'SELECT job_id, job_title, com_name FROM Jobs INNER JOIN Companies ON Jobs.com_id = Companies.com_id LIMIT 20';
+        $this->query_string = 'SELECT job_id, job_title, com_name FROM Jobs INNER JOIN Companies ON Jobs.com_id = Companies.com_id ORDER BY Jobs.job_id DESC LIMIT 20';
         $this->query();
         $this->stmt->execute();
         $this->stmt->bind_result($id, $title, $com_name);
