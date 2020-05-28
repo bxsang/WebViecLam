@@ -45,7 +45,14 @@ switch ($_REQUEST['field']) {
 
     case 'applied':
         $selection = new Selection();
+        $id = $auth->getUserId();
         echo json_encode($selection->getAppliedJobs($id));
+        break;
+
+    case 'jobs_of_employer':
+        $selection = new Selection();
+        $id = $auth->getUserId();
+        echo json_encode($selection->getJobsOfEmployer($id));
         break;
 
     case 'add':

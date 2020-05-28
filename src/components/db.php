@@ -176,8 +176,25 @@ class Selection extends Database {
     public function getAppliedJobs($id) {
         $this->query_string = 'SELECT b.job_id, b.job_title, c.com_name
             FROM Applicants a INNER JOIN Jobs b ON a.job_id = b.job_id INNER JOIN Companies c ON b.com_id = c.com_id
-            WHERE a.ee_id = 1';
+            WHERE a.ee_id = ?';
         $this->query();
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $title, $com_name);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new NewJob($id, $title, $com_name));
+        }
+        $this->closeConnection();
+        return $result;
+    }
+
+    public function getJobsOfEmployer($com_id) {
+        $this->query_string = 'SELECT job_id, job_title, com_name 
+            FROM Jobs INNER JOIN Companies ON Jobs.com_id = Companies.com_id
+            WHERE Jobs.com_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $com_id);
         $this->stmt->execute();
         $this->stmt->bind_result($id, $title, $com_name);
         $result = [];
