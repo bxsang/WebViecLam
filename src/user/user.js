@@ -2,6 +2,7 @@ $(document).ready(function() {
     getEmployeeInfo();
     getEmployeeAppliedJobs();
     getEmployerInfo();
+    getJobsOfEmployer();
 });
 
 function getEmployeeInfo() {
@@ -78,3 +79,38 @@ function handleEmployerInfo(employer) {
 $("#btn_add_job").on('click', function () {
   $("#add_job").modal("toggle");
 });
+
+function getJobsOfEmployer() {
+  $.ajax({
+    type: "GET",
+    url: window.location.protocol+'//'+window.location.hostname+'/api/jobs.php?field=jobs_of_employer',
+    success: function (response) {
+      appendJobsOfEmployer(response);
+    }
+  });
+}
+
+function appendJobsOfEmployer(jobs) {
+  jobs.forEach((item, index) => {
+    let title = item.title;
+    let com_name = item.com_name;
+
+    $("#list-jobs-of-employer").append(`
+    <div class="row list-job">
+      <div class="card">
+        <div class="card-body">
+          <div class="logo-box">
+            <img src="https://salt.topdev.vn/JlorGxjbwWuLgupzcV2BewxBjpQlYLnCYf9my4-qpv4/fit/120/0/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ZpbGVzL2xvZ29zL2I4ZGIzYTBhMjE4NzdhOGQ4Y2ZhODEwM2EyNmFhM2FlLmpwZw/b8db3a0a21877a8d8cfa8103a26aa3ae.jpg">
+          </div>
+          <div class="job-content">
+             <a target="_blank" href="#">
+                <strong><h4>`+title+`</h4></strong>
+              </a>
+              <a href="#"><em>`+com_name+`</em></a>
+            </div>
+          </div>
+        </div>
+      </div>`
+    );
+  });
+}

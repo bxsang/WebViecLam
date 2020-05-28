@@ -60,7 +60,7 @@
 
             <?php
               if ($role == 'employer') {
-                echo '<a class="list-group-item list-group-item-action" id="list-manage-jobs-list" data-toggle="list" href="#list-manage-jobs"
+                echo '<a class="list-group-item list-group-item-action" id="list-jobs-of-employer-list" data-toggle="list" href="#list-jobs-of-employer"
                 role="tab" aria-controls="settings">Quản lý công việc</a>';
               }
             ?>
@@ -248,26 +248,12 @@
             <?php
             if ($role == 'employer') {
               echo '
-            <div class="tab-pane fade" id="list-manage-jobs" role="tabpanel" aria-labelledby="list-manage-jobs-list">
+            <div class="tab-pane fade" id="list-jobs-of-employer" role="tabpanel" aria-labelledby="list-jobs-of-employer-list">
               <div id="manage_job_title">
                 <h1>Quản lý công việc</h1>
                 <button id="btn_add_job" class="btn btn-success btn-rounded"><i class="fas fa-plus mr-1"></i> Tạo mới</button>
               </div>
-              <div class="row list-job">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="logo-box">
-                      <img src="https://salt.topdev.vn/JlorGxjbwWuLgupzcV2BewxBjpQlYLnCYf9my4-qpv4/fit/120/0/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ZpbGVzL2xvZ29zL2I4ZGIzYTBhMjE4NzdhOGQ4Y2ZhODEwM2EyNmFhM2FlLmpwZw/b8db3a0a21877a8d8cfa8103a26aa3ae.jpg">
-                    </div>
-                    <div class="job-content">
-                      <a target="_blank" href="#">
-                        <strong><h4>Tuyển lập trình viên PHP</h4></strong>
-                      </a>
-                      <a href="#"><em>Công ty A</em></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </div>';
             }
             ?>
