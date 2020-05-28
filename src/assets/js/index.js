@@ -205,7 +205,7 @@ $(".form-add-job").submit(function (event) {
   event.preventDefault();
 
   let form = $(this);
-  let url = window.location.protocol+'//'+window.location.hostname+'/api/add.php';
+  let url = window.location.protocol+'//'+window.location.hostname+'/api/jobs.php';
 
   $.ajax({
     type: "POST",
