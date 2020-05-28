@@ -29,7 +29,10 @@ function checkAuth() {
     }
 }
 
-switch ($_GET['field']) {
+$auth = new Auth();
+$auth->getTokenFromClient();
+
+switch ($_REQUEST['field']) {
     case 'new':
         $selection = new Selection();
         echo json_encode($selection->getNewJob());
@@ -43,6 +46,27 @@ switch ($_GET['field']) {
     case 'applied':
         $selection = new Selection();
         echo json_encode($selection->getAppliedJobs($id));
+        break;
+
+    case 'add':
+        $db = new Insertion();
+
+        $title = $_POST['title'];
+        $category = $_POST['category'];
+        $salary = $_POST['salary'];
+        $description = $_POST['description'];
+        $requirement = $_POST['requirement'];
+        $expiry_at = $_POST['expiry_at'];
+        $location = $_POST['location'];
+        $people_num = $_POST['people_num'];
+        $type = $_POST['type'];
+        $com_id = $auth->decodeToken()->com_id;
+
+        $db->insertJob($title, $salary, $description, $requirement, $expiry_at, $location, $people_num, $type, $com_id);
+        $db->insertJobCategories($db->getInsertId(), $category);
+
+        $db->printStatus();
+
         break;
     
     default:

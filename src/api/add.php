@@ -29,23 +29,6 @@ switch ($field) {
         $db->insertCategory($name);
         break;
 
-    case 'job':
-        $title = $_POST['title'];
-        $category = $_POST['category'];
-        $salary = $_POST['salary'];
-        $description = $_POST['description'];
-        $requirement = $_POST['requirement'];
-        $expiry_at = $_POST['expiry_at'];
-        $location = $_POST['location'];
-        $people_num = $_POST['people_num'];
-        $type = $_POST['type'];
-        $com_id = $auth->decodeToken()->com_id;
-
-        $db->insertJob($title, $salary, $description, $requirement, $expiry_at, $location, $people_num, $type, $com_id);
-        $db->insertJobCategories($db->getInsertId(), $category);
-
-        break;
-
     case 'applicant':
         $ee_id = $_POST['ee_id'];
         $job_id = $_POST['job_id'];
