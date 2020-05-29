@@ -231,6 +231,19 @@ class Selection extends Database {
         }
         return null;
     }
+    
+    public function getResponse($applicant_id) {
+        $this->query_string = 'SELECT * FROM Responses WHERE Responses.a_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $applicant_id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $message, $response_time, $applicant_id);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new Response($id, $message, $response_time, $applicant_id);
+        }
+        return null;
+    }
 }
 
 class Insertion extends Database {

@@ -2,6 +2,10 @@ $("#btn_apply").on("click", function () {
   apply();
 });
 
+$("#btn_view_response").on("click", function () {
+  $("#modal_response").modal('toggle');
+});
+
 function apply() {
   let url = window.location.protocol+'//'+window.location.hostname+'/api/jobs.php';
   let ee_id = $("#ee_id").text();

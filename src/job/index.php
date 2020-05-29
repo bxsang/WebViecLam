@@ -18,6 +18,11 @@ $user_id = $auth->getUserId();
 $selection = new Selection();
 $job = $selection->getSpecificJob($job_id);
 $company = $selection->getSpecificCompany($job->com_id);
+$applicant_id = $selection->getApplicant($user_id, $job_id)->id;
+
+if ($applicant_id != null) {
+  $response = $selection->getResponse($applicant_id)->message;
+}
 
 ?>
 
@@ -86,6 +91,18 @@ $company = $selection->getSpecificCompany($job->com_id);
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="modal_response">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3>Phản hồi</h3>
+          <h2 id="modal_response_body"><?php echo $response; ?></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
   
   <?php include_once '../include/footer.html' ?>
 

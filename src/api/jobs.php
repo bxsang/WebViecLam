@@ -98,6 +98,22 @@ switch ($_REQUEST['field']) {
         $selection = new Selection();
         echo json_encode($selection->getApplicant($user_id, $job_id));
         break;
+
+    case 'get_response':
+        $applicant_id = $_GET['applicant_id'];
+        $selection = new Selection();
+        echo json_encode($selection->getResponse($applicant_id));
+        break;
+
+    case 'insert_response':
+        $message = $_POST['message'];
+        $a_id = $_POST['a_id'];
+
+        $db = new Insertion();
+        $db->insertResponse($message, $a_id);
+        $db->printStatus();
+
+        break;
     
     default:
         http_response_code(403);
