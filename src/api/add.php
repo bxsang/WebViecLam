@@ -29,13 +29,6 @@ switch ($field) {
         $db->insertCategory($name);
         break;
 
-    case 'applicant':
-        $ee_id = $_POST['ee_id'];
-        $job_id = $_POST['job_id'];
-
-        $db->insertApplicant($ee_id, $job_id);
-        break;
-
     case 'response':
         $message = $_POST['message'];
         $a_id = $_POST['a_id'];

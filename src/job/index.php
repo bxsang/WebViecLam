@@ -44,7 +44,7 @@ $company = $selection->getSpecificCompany($job->com_id);
 							</div>
 							
 							<div class="detail_job" >
-								<button type="button" class="btn btn-outline-secondary" id="button">Apply Now!</button>
+								<button type="button" class="btn btn-outline-secondary" id="btn_apply">Apply Now!</button>
                 <p><b>Ngày đăng</b></p>
                 <p id="job_created_at"><?php echo $job->created_at; ?></p>
                 <p><b>Ngày hết hạn</b></p>

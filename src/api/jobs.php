@@ -81,6 +81,16 @@ switch ($_REQUEST['field']) {
         $db->printStatus();
 
         break;
+
+    case 'apply':
+        $db = new Insertion();
+        $ee_id = $_POST['ee_id'];
+        $job_id = $_POST['job_id'];
+
+        $db->insertApplicant($ee_id, $job_id);
+
+        $db->printStatus();
+        break;
     
     default:
         http_response_code(403);
