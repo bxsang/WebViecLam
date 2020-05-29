@@ -50,7 +50,7 @@ if (isset($_REQUEST['q']) || isset($_REQUEST['city'])) {
               <img src="https://salt.topdev.vn/JlorGxjbwWuLgupzcV2BewxBjpQlYLnCYf9my4-qpv4/fit/120/0/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ZpbGVzL2xvZ29zL2I4ZGIzYTBhMjE4NzdhOGQ4Y2ZhODEwM2EyNmFhM2FlLmpwZw/b8db3a0a21877a8d8cfa8103a26aa3ae.jpg">
             </div>
             <div class="job-content">
-              <a target="_blank" href="#">
+              <a target="_blank" href="/job/?job_id='.$value->job_id.'">
                 <strong><h4>'.$value->job_title.'</h4></strong>
               </a>
               <a href="#"><em>'.$value->com_name.'</em></a>

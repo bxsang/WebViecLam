@@ -231,7 +231,7 @@
 
             <div class="tab-pane fade" id="list-search-jobs" role="tabpanel" aria-labelledby="list-search-jobs-list">
               <h1>Tìm kiếm việc làm</h1>
-                <form class="form-inline" action="search/" id="search_form">
+                <form class="form-inline" action="/search/" id="search_form">
                   <input name="q" type="search" placeholder="Tìm kiếm công việc, vị trí, công ty,..." class="form-control form-control-lg bg-light mb-2 mr-sm-2 col-sm-7" autofocus>
                   <select name="city" class="browser-default custom-select2 form-control-lg bg-light mb-2 mr-sm-2 col-sm-3">
                     <option selected>Địa điểm</option>

@@ -22,6 +22,7 @@ function getNewJobs() {
 
 function appendNewJobs(jobs) {
   jobs.forEach((item, index) => {
+    let id = item.id;
     let title = item.title;
     let com_name = item.com_name;
 
@@ -33,7 +34,7 @@ function appendNewJobs(jobs) {
             <img src="https://salt.topdev.vn/JlorGxjbwWuLgupzcV2BewxBjpQlYLnCYf9my4-qpv4/fit/120/0/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ZpbGVzL2xvZ29zL2I4ZGIzYTBhMjE4NzdhOGQ4Y2ZhODEwM2EyNmFhM2FlLmpwZw/b8db3a0a21877a8d8cfa8103a26aa3ae.jpg">
           </div>
           <div class="job-content">
-            <a target="_blank" href="#">
+            <a target="_blank" href="/job/?job_id=`+id+`">
               <strong><h4>`+title+`</h4></strong>
             </a>
             <a href="#"><em>`+com_name+`</em></a>
