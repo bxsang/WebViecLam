@@ -24,6 +24,7 @@ function handleApply(response) {
     setTimeout(() => {
       $("#modal_success").modal('toggle');
     }, 5000);
+    location.reload(); 
   } else {
     console.log("Apply failed");
     $("#modal_failed").modal('toggle');

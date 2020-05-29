@@ -145,13 +145,13 @@ class JobCategory {
 
 class Applicant {
     public $id;
-    public $job_id;
     public $employee_id;
+    public $job_id;
 
-    public function __construct($id, $job_id, $employee_id, $employer_id) {
+    public function __construct($id, $employee_id, $job_id) {
         $this->id = $id;
+        $this->employee_id = $employee_id;
         $this->job_id = $job_id;
-        $this->employee_id = $this->employee_id;
     }
 }
 

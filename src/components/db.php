@@ -218,6 +218,19 @@ class Selection extends Database {
         }
         return null;
     }
+
+    public function getApplicant($ee_id, $job_id) {
+        $this->query_string = 'SELECT a_id, ee_id, job_id FROM Applicants WHERE ee_id = ? AND job_id = ?';
+        $this->query();
+        $this->stmt->bind_param('ii', $ee_id, $job_id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $employee_id, $job_id);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new Applicant($id, $employee_id, $job_id);
+        }
+        return null;
+    }
 }
 
 class Insertion extends Database {

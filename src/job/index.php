@@ -47,7 +47,13 @@ $company = $selection->getSpecificCompany($job->com_id);
 							</div>
 							
 							<div class="detail_job" >
-								<button type="button" class="btn btn-outline-secondary" id="btn_apply">Apply Now!</button>
+              <?php
+              if ($selection->getApplicant($user_id, $job_id) == null) {
+                echo '<button type="button" class="btn btn-outline-secondary" id="btn_apply">Apply Now!</button>';
+              } else {
+                echo '<button type="button" class="btn btn-outline-secondary" id="btn_view_response">Xem phản hồi</button>';
+              }
+              ?>
                 <p><b>Ngày đăng</b></p>
                 <p id="job_created_at"><?php echo $job->created_at; ?></p>
                 <p><b>Ngày hết hạn</b></p>

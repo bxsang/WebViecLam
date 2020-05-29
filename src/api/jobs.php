@@ -91,6 +91,13 @@ switch ($_REQUEST['field']) {
 
         $db->printStatus();
         break;
+
+    case 'get_applicant':
+        $user_id = $auth->getUserId();
+        $job_id = $_GET['job_id'];
+        $selection = new Selection();
+        echo json_encode($selection->getApplicant($user_id, $job_id));
+        break;
     
     default:
         http_response_code(403);
