@@ -102,7 +102,7 @@ class Selection extends Database {
         return null;
     }
 
-    public function selectCompany($id) {
+    public function getSpecificCompany($id) {
         $this->query_string = 'SELECT com_id, com_name, com_address, com_email, com_scale, com_contact_name, com_contact_phone
                 FROM Companies WHERE com_id = ?';
         $this->query();
