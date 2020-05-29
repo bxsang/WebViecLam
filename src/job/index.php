@@ -5,15 +5,16 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/components/db.php';
 $auth = new Auth();
 $auth->getTokenFromClient();
 
-if (!$auth->isLoggedIn()) {
-  echo 'Bạn chưa đăng nhập';
-  die();
-}
+// if (!$auth->isLoggedIn()) {
+//   echo 'Bạn chưa đăng nhập';
+//   die();
+// }
 
 // $role = $auth->getUserRole();
 // $id = $auth->getUserId();
 
 $job_id = $_GET['job_id'];
+$user_id = $auth->getUserId();
 $selection = new Selection();
 $job = $selection->getSpecificJob($job_id);
 $company = $selection->getSpecificCompany($job->com_id);
@@ -28,6 +29,8 @@ $company = $selection->getSpecificCompany($job->com_id);
     include_once '../include/modals.html';
   ?>
 
+  <p hidden id="job_id"><?php echo $job_id; ?></p>
+  <p hidden id="ee_id"><?php echo $user_id; ?></p>
   <div class="container-fluid mt85">
     <div class="row">
       <div class="col-lg-8 pb-5">
@@ -81,8 +84,8 @@ $company = $selection->getSpecificCompany($job->com_id);
   <?php include_once '../include/footer.html' ?>
 
   <link rel="stylesheet" href="style_job.css">
-  <script src="user.js"></script>
   <script src="../assets/mdb/js/jquery.min.js"></script>
+  <script src="job.js"></script>
   <script src="../assets/js/index.js"></script>
   <script src="../assets/mdb/js/bootstrap.min.js"></script>
 </body>
