@@ -219,10 +219,23 @@ class Selection extends Database {
         return null;
     }
 
-    public function getApplicant($ee_id, $job_id) {
+    public function getSpecificApplicant($ee_id, $job_id) {
         $this->query_string = 'SELECT a_id, ee_id, job_id FROM Applicants WHERE ee_id = ? AND job_id = ?';
         $this->query();
         $this->stmt->bind_param('ii', $ee_id, $job_id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $employee_id, $job_id);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new Applicant($id, $employee_id, $job_id);
+        }
+        return null;
+    }
+
+    public function getApplicantById($id) {
+        $this->query_string = 'SELECT a_id, ee_id, job_id FROM Applicants WHERE a_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
         $this->stmt->bind_result($id, $employee_id, $job_id);
         if ($this->stmt->fetch()) {
@@ -243,6 +256,37 @@ class Selection extends Database {
             return new Response($id, $message, $response_time, $applicant_id);
         }
         return null;
+    }
+
+    public function getBasicEmployeeInfo($id) {
+        $this->query_string = 'SELECT a.ee_id, b.ee_name, a.ee_phone_number, a.ee_email, b.ee_address, b.ee_gender, b.ee_academic_level
+            FROM Employees a INNER JOIN Files b ON a.ee_id = b.ee_id
+            WHERE a.ee_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $name, $phone_number, $email, $address, $gender, $academic_level);
+        if ($this->stmt->fetch()) {
+            $this->closeConnection();
+            return new BasicEmployeeInfo($id, $name, $phone_number, $email, $address, $gender, $academic_level);
+        }
+        return null;
+    }
+
+    public function getAppliedEmployees($job_id) {
+        $this->query_string = 'SELECT b.ee_id, c.ee_name, b.ee_phone_number, b.ee_email, c.ee_address, c.ee_gender, c.ee_academic_level
+            FROM Applicants a INNER JOIN Employees b ON a.ee_id = b.ee_id INNER JOIN Files c ON a.ee_id = c.ee_id
+            WHERE a.job_id = ?';
+        $this->query();
+        $this->stmt->bind_param('i', $job_id);
+        $this->stmt->execute();
+        $this->stmt->bind_result($id, $name, $phone_number, $email, $address, $gender, $academic_level);
+        $result = [];
+        while ($this->stmt->fetch()) {
+            array_push($result, new BasicEmployeeInfo($id, $name, $phone_number, $email, $address, $gender, $academic_level));
+        }
+        $this->closeConnection();
+        return $result;
     }
 }
 
@@ -297,8 +341,7 @@ class Insertion extends Database {
         $this->execute();
     }
 
-    public function insertCategory($name)
-    {
+    public function insertCategory($name) {
         $this->query_string = 'INSERT INTO Categories (cat_name) VALUES (?)';
         $this->query();
         $this->stmt->bind_param('s', $name);
@@ -381,8 +424,8 @@ class Search extends Database {
 
     public function performSearch() {
         $this->query_string = 'SELECT Jobs.job_id, Jobs.job_title, Jobs.job_description, Jobs.job_location, Categories.cat_name, Companies.com_name 
-        FROM ((Jobs INNER JOIN JobCategories ON Jobs.job_id = JobCategories.job_id) INNER JOIN Categories ON JobCategories.cat_name = Categories.cat_name) INNER JOIN Companies ON Jobs.com_id = Companies.com_id 
-        WHERE MATCH(Jobs.job_title, Jobs.job_description) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Categories.cat_name) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Jobs.job_location) AGAINST (? IN NATURAL LANGUAGE MODE)';
+            FROM ((Jobs INNER JOIN JobCategories ON Jobs.job_id = JobCategories.job_id) INNER JOIN Categories ON JobCategories.cat_name = Categories.cat_name) INNER JOIN Companies ON Jobs.com_id = Companies.com_id 
+            WHERE MATCH(Jobs.job_title, Jobs.job_description) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Categories.cat_name) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Jobs.job_location) AGAINST (? IN NATURAL LANGUAGE MODE)';
         
         $this->query();
         $this->stmt->bind_param('sss', $this->q, $this->q, $this->city);

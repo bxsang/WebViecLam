@@ -10,15 +10,14 @@ $auth->getTokenFromClient();
 //   die();
 // }
 
-// $role = $auth->getUserRole();
-// $id = $auth->getUserId();
+$role = $auth->getUserRole();
 
 $job_id = $_GET['job_id'];
 $user_id = $auth->getUserId();
 $selection = new Selection();
 $job = $selection->getSpecificJob($job_id);
 $company = $selection->getSpecificCompany($job->com_id);
-$applicant_id = $selection->getApplicant($user_id, $job_id)->id;
+$applicant_id = $selection->getSpecificApplicant($user_id, $job_id)->id;
 
 if ($applicant_id != null) {
   $response = $selection->getResponse($applicant_id)->message;
@@ -36,6 +35,7 @@ if ($applicant_id != null) {
 
   <p hidden id="job_id"><?php echo $job_id; ?></p>
   <p hidden id="ee_id"><?php echo $user_id; ?></p>
+
   <div class="container-fluid mt85">
     <div class="row">
       <div class="col-lg-8 pb-5">
@@ -53,11 +53,17 @@ if ($applicant_id != null) {
 							
 							<div class="detail_job" >
               <?php
-              if ($selection->getApplicant($user_id, $job_id) == null) {
-                echo '<button type="button" class="btn btn-outline-secondary" id="btn_apply">Apply Now!</button>';
-              } else {
-                echo '<button type="button" class="btn btn-outline-secondary" id="btn_view_response">Xem phản hồi</button>';
+              if ($role == 'employee') {
+                if ($selection->getSpecificApplicant($user_id, $job_id) == null) {
+                  echo '<button type="button" class="btn btn-outline-secondary" id="btn_apply">Apply Now!</button>';
+                } else {
+                  echo '<button type="button" class="btn btn-outline-secondary" id="btn_view_response">Xem phản hồi</button>';
+                }
+              } elseif ($role == 'employer') {
+                echo '<button type="button" class="btn btn-outline-secondary" id="btn_applicant_list">Danh sách ứng tuyển</button>';
+
               }
+              
               ?>
                 <p><b>Ngày đăng</b></p>
                 <p id="job_created_at"><?php echo $job->created_at; ?></p>
@@ -103,6 +109,16 @@ if ($applicant_id != null) {
     </div>
   </div>
 
+  <div class="modal fade" id="modal_view_applicants">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3>Danh sách ứng tuyển</h3>
+          
+        </div>
+      </div>
+    </div>
+  </div>
   
   <?php include_once '../include/footer.html' ?>
 

@@ -242,4 +242,24 @@ class EmployerInfo {
     }
 }
 
+class BasicEmployeeInfo {
+    public $id;
+    public $name;
+    public $phone_number;
+    public $email;
+    public $address;
+    public $gender;
+    public $academic_level;
+
+    public function __construct($id, $name, $phone_number, $email, $address, $gender, $academic_level) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->phone_number = $phone_number;
+        $this->email = $email;
+        $this->address = $address;
+        $this->gender = $gender;
+        $this->academic_level = $academic_level;
+    }
+}
+
 ?>

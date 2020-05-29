@@ -96,7 +96,7 @@ switch ($_REQUEST['field']) {
         $user_id = $auth->getUserId();
         $job_id = $_GET['job_id'];
         $selection = new Selection();
-        echo json_encode($selection->getApplicant($user_id, $job_id));
+        echo json_encode($selection->getSpecificApplicant($user_id, $job_id));
         break;
 
     case 'get_response':
@@ -113,6 +113,12 @@ switch ($_REQUEST['field']) {
         $db->insertResponse($message, $a_id);
         $db->printStatus();
 
+        break;
+
+    case 'applied_employees':
+        $job_id = $_GET['job_id'];
+        $selection = new Selection();
+        echo json_encode($selection->getAppliedEmployees($job_id));
         break;
     
     default:
