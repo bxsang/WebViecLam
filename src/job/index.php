@@ -61,7 +61,6 @@ if ($applicant_id != null) {
                 }
               } elseif ($role == 'employer') {
                 echo '<button type="button" class="btn btn-outline-secondary" id="btn_applicant_list">Danh sách ứng tuyển</button>';
-
               }
               
               ?>
