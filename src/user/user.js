@@ -39,6 +39,7 @@ function appendAppliedJobs(jobs) {
     let id = item.id;
     let title = item.title;
     let com_name = item.com_name;
+    let com_id = item.com_id;
 
     $("#list-applied-jobs .list-job").append(`
   <div class="card">
@@ -50,7 +51,7 @@ function appendAppliedJobs(jobs) {
         <a target="_blank" href="/job/?job_id=`+id+`">
           <strong><h4>`+title+`</h4></strong>
         </a>
-        <a href="#"><em>`+com_name+`</em></a>
+        <a href="/company/?com_id=`+com_id+`"><em>`+com_name+`</em></a>
       </div>
     </div>
   </div>`);
@@ -84,7 +85,7 @@ $("#btn_add_job").on('click', function () {
 function getJobsOfEmployer() {
   $.ajax({
     type: "GET",
-    url: window.location.protocol+'//'+window.location.hostname+'/api/jobs.php?field=jobs_of_employer',
+    url: window.location.protocol+'//'+window.location.hostname+'/api/jobs.php?field=jobs_of_employer&com_id=1',
     success: function (response) {
       appendJobsOfEmployer(response);
     }
@@ -96,6 +97,7 @@ function appendJobsOfEmployer(jobs) {
     let id = item.id;
     let title = item.title;
     let com_name = item.com_name;
+    let com_id = item.com_id;
 
     $("#list-jobs-of-employer").append(`
     <div class="row list-job">
@@ -108,7 +110,7 @@ function appendJobsOfEmployer(jobs) {
              <a target="_blank" href="/job/?job_id=`+id+`">
                 <strong><h4>`+title+`</h4></strong>
               </a>
-              <a href="#"><em>`+com_name+`</em></a>
+              <a href="/company/?com_id=`+com_id+`"><em>`+com_name+`</em></a>
             </div>
           </div>
         </div>

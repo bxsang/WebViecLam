@@ -53,7 +53,7 @@ if (isset($_REQUEST['q']) || isset($_REQUEST['city'])) {
               <a target="_blank" href="/job/?job_id='.$value->job_id.'">
                 <strong><h4>'.$value->job_title.'</h4></strong>
               </a>
-              <a href="#"><em>'.$value->com_name.'</em></a>
+              <a href="/company?com_id='.$value->com_id.'"><em>'.$value->com_name.'</em></a>
             </div>
           </div>
         </div>

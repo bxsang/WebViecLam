@@ -117,13 +117,13 @@ class Selection extends Database {
     }
 
     public function getNewJob() {
-        $this->query_string = 'SELECT job_id, job_title, com_name FROM Jobs INNER JOIN Companies ON Jobs.com_id = Companies.com_id ORDER BY Jobs.job_id DESC LIMIT 20';
+        $this->query_string = 'SELECT job_id, job_title, com_name, com_id FROM Jobs INNER JOIN Companies ON Jobs.com_id = Companies.com_id ORDER BY Jobs.job_id DESC LIMIT 20';
         $this->query();
         $this->stmt->execute();
-        $this->stmt->bind_result($id, $title, $com_name);
+        $this->stmt->bind_result($id, $title, $com_name, $com_id);
         $result = [];
         while ($this->stmt->fetch()) {
-            array_push($result, new NewJob($id, $title, $com_name));
+            array_push($result, new NewJob($id, $title, $com_name, $com_id));
         }
         $this->closeConnection();
         return $result;
@@ -158,16 +158,16 @@ class Selection extends Database {
     }
 
     public function getAppliedJobs($id) {
-        $this->query_string = 'SELECT b.job_id, b.job_title, c.com_name
+        $this->query_string = 'SELECT b.job_id, b.job_title, c.com_name, c.com_id
             FROM Applicants a INNER JOIN Jobs b ON a.job_id = b.job_id INNER JOIN Companies c ON b.com_id = c.com_id
             WHERE a.ee_id = ?';
         $this->query();
         $this->stmt->bind_param('i', $id);
         $this->stmt->execute();
-        $this->stmt->bind_result($id, $title, $com_name);
+        $this->stmt->bind_result($id, $title, $com_name, $com_id);
         $result = [];
         while ($this->stmt->fetch()) {
-            array_push($result, new NewJob($id, $title, $com_name));
+            array_push($result, new NewJob($id, $title, $com_name, $com_id));
         }
         $this->closeConnection();
         return $result;
@@ -183,7 +183,7 @@ class Selection extends Database {
         $this->stmt->bind_result($id, $title, $com_name);
         $result = [];
         while ($this->stmt->fetch()) {
-            array_push($result, new NewJob($id, $title, $com_name));
+            array_push($result, new NewJob($id, $title, $com_name, $com_id));
         }
         $this->closeConnection();
         return $result;
@@ -423,17 +423,17 @@ class Search extends Database {
     }
 
     public function performSearch() {
-        $this->query_string = 'SELECT Jobs.job_id, Jobs.job_title, Jobs.job_description, Jobs.job_location, Categories.cat_name, Companies.com_name 
+        $this->query_string = 'SELECT Jobs.job_id, Jobs.job_title, Jobs.job_description, Jobs.job_location, Categories.cat_name, Companies.com_name, Companies.com_id
             FROM ((Jobs INNER JOIN JobCategories ON Jobs.job_id = JobCategories.job_id) INNER JOIN Categories ON JobCategories.cat_name = Categories.cat_name) INNER JOIN Companies ON Jobs.com_id = Companies.com_id 
             WHERE MATCH(Jobs.job_title, Jobs.job_description) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Categories.cat_name) AGAINST (? IN NATURAL LANGUAGE MODE) OR MATCH(Jobs.job_location) AGAINST (? IN NATURAL LANGUAGE MODE)';
         
         $this->query();
         $this->stmt->bind_param('sss', $this->q, $this->q, $this->city);
         $this->stmt->execute();
-        $this->stmt->bind_result($job_id, $job_title, $job_description, $job_location, $cat_name, $com_name);
+        $this->stmt->bind_result($job_id, $job_title, $job_description, $job_location, $cat_name, $com_name, $com_id);
         $result = [];
         while ($this->stmt->fetch()) {
-            array_push($result, new SearchResult($job_id, $job_title, $job_description, $job_location, $cat_name, $com_name));
+            array_push($result, new SearchResult($job_id, $job_title, $job_description, $job_location, $cat_name, $com_name, $com_id));
         }
         $this->closeConnection();
         return $result;

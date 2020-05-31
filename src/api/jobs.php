@@ -56,8 +56,8 @@ switch ($_REQUEST['field']) {
         break;
 
     case 'jobs_of_employer':
+        $id = $_GET['com_id'];
         $selection = new Selection();
-        $id = $auth->getUserId();
         echo json_encode($selection->getJobsOfEmployer($id));
         break;
 

@@ -173,11 +173,13 @@ class NewJob {
     public $id;
     public $title;
     public $com_name;
+    public $com_id;
 
-    public function __construct($id, $title, $com_name) {
+    public function __construct($id, $title, $com_name, $com_id) {
         $this->id = $id;
         $this->title = $title;
         $this->com_name = $com_name;
+        $this->com_id = $com_id;
     }
 }
 
@@ -188,14 +190,16 @@ class SearchResult {
     public $job_location;
     public $cat_name;
     public $com_name;
+    public $com_id;
 
-    public function __construct($job_id, $job_title, $job_description, $job_location, $cat_name, $com_name) {
+    public function __construct($job_id, $job_title, $job_description, $job_location, $cat_name, $com_name, $com_id) {
         $this->job_id = $job_id;
         $this->job_title = $job_title;
         $this->job_description = $job_description;
         $this->job_location = $job_location;
         $this->cat_name = $cat_name;
         $this->com_name = $com_name;
+        $this->com_id = $com_id;
     }
 }
 
